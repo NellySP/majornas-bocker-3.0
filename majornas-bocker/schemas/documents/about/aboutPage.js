@@ -14,6 +14,7 @@ export default {
       type: "array",
       of: [
         { type: "aboutHero" }, // hero.js (same applies for the other types)
+        { type: "aboutGallery" },
         // { type: 'calendar' },
         // { type: 'about' },
         // { type: 'news' },
