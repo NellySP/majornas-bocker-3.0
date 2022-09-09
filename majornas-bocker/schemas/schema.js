@@ -9,8 +9,8 @@ import link from "./documents/navigation/objects/link";
 // Home page imports
 import home from "./documents/home/home";
 import hero from "./documents/home/objects/hero";
-import calendar from "./documents/home/objects/calendar";
 import about from "./documents/home/objects/about";
+import calendar from "./documents/home/objects/calendar";
 import news from "./documents/home/objects/news";
 
 // About page imports
@@ -25,6 +25,11 @@ import singleNews from "./documents/news/objects/singleNews";
 
 // Then import schema types from any plugins that might expose them
 import schemaTypes from "all:part:@sanity/base/schema-type";
+
+// Calendar page Imports
+import calendarHero from "./documents/calendar/objects/calendarHero";
+import calendarPage from "./documents/calendar/calendarPage";
+import calendarPost from "./documents/calendar/objects/calendarPost";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -53,6 +58,9 @@ export default createSchema({
     gallery,
 
     // Calendar page schemas
+    calendarHero,
+    calendarPage,
+    calendarPost,
 
     // News page schemas
     newsHero,
