@@ -23,6 +23,10 @@ import newsPage from "./documents/news/newsPage";
 import newsHero from "./documents/news/objects/newsHero";
 import singleNews from "./documents/news/objects/singleNews";
 
+// Footer imports
+import footer from './documents/footer/footer';
+import footerItem from './documents/footer/objects/footerItem';
+
 // Then import schema types from any plugins that might expose them
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
@@ -55,6 +59,10 @@ export default createSchema({
     // Calendar page schemas
 
     // News page schemas
+
+    // Footer schemas
+    footer,
+    footerItem,
     newsHero,
     newsPage,
     singleNews,
