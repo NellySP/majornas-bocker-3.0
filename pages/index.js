@@ -8,17 +8,18 @@ import { sanityClient } from '../lib/sanity';
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 const homePageQuery = `*[_type == 'homePage']{
+  
   pageBuilder[0]{
     heading,
     heroDescription,
     mainLink,
     url
-  }
+  },
+
 }`;
 
 export default function Home({ homePage }) {
-  console.log(homePage[0].pageBuilder.heading);
-
+  // console.log(homePage[0].pageBuilder.heading);
   const hero = homePage[0].pageBuilder;
 
   return (
