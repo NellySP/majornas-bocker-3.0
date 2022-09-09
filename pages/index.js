@@ -9,18 +9,17 @@ import { sanityClient } from '../lib/sanity';
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 const homePageQuery = `*[_type == 'homePage']{
   
-  pageBuilder[0]{
-    heading,
-    heroDescription,
-    mainLink,
-    url
-  },
+  pageBuilder
 
 }`;
 
 export default function Home({ homePage }) {
-  // console.log(homePage[0].pageBuilder.heading);
-  const hero = homePage[0].pageBuilder;
+  // console.log(homePage);
+  // const hero = homePage[0].pageBuilder;
+  const h1 = homePage[0].pageBuilder[0].heading;
+  const h2 = homePage[0].pageBuilder[3].sectionTitle;
+  console.log(h1);
+  console.log(h2);
 
   return (
     <div className={styles.container}>
@@ -31,7 +30,7 @@ export default function Home({ homePage }) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>{hero.heading}</h1>
+        {/* <h1 className={styles.title}>{hero.heading}</h1> */}
 
         <p className={styles.description}>
           Get started by editing{' '}
