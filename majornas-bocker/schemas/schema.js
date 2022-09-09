@@ -18,6 +18,11 @@ import aboutPage from "./documents/about/aboutPage";
 import aboutHero from "./documents/about/objects/aboutHero";
 import gallery from "./documents/about/objects/gallery";
 
+// News page imports
+import newsPage from "./documents/news/newsPage";
+import newsHero from "./documents/news/objects/newsHero";
+import singleNews from "./documents/news/objects/singleNews";
+
 // Then import schema types from any plugins that might expose them
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
@@ -50,5 +55,8 @@ export default createSchema({
     // Calendar page schemas
 
     // News page schemas
+    newsHero,
+    newsPage,
+    singleNews,
   ]),
 });
