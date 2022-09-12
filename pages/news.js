@@ -1,0 +1,52 @@
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+
+import { SanityClient, urlFor } from "next-sanity";
+import { sanityClient } from "../lib/sanity";
+
+// GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
+
+const newsPageQuery = `*[_type == 'newsPage']{
+  pageBuilder
+}`;
+
+export default function Home({ newsPage }) {
+ const newsHeading = newsPage[0].pageBuilder[0].heading;
+ const newsText = newsPage[0].pageBuilder[0].heroDescription;
+ const noticeHeading = newsPage[0].pageBuilder[0].noticeOfInterest;
+ const noticeText = newsPage [0].pageBuilder[0].noticeText;
+
+ const singleNews = newsPage [0].pageBuilder[1];
+ console.log(singleNews);
+
+ { singleNews.map(image => (
+    {image}
+ ))} 
+
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>Om oss</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <main className={styles.main}>
+        <h1>{newsHeading}</h1>
+        <p>{newsText}</p>
+        <h2>{noticeHeading}</h2>
+        <p>{noticeText}</p>
+
+      </main>
+
+      <footer className={styles.footer}></footer>
+    </div>
+  );
+}
+
+export async function getStaticProps() {
+  const newsPage = await sanityClient.fetch(newsPageQuery);
+  // Assign aboutPage to props
+  return { props: { newsPage } };
+}
