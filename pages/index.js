@@ -3,23 +3,44 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
-import { SanityClient, urlFor } from 'next-sanity';
-import { sanityClient } from '../lib/sanity';
+import { sanityClient, urlFor } from '../lib/sanity';
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
-const homePageQuery = `*[_type == 'homePage']{
-  
-  pageBuilder
 
-}`;
+const heroQuery = `*[_type == 'homePage'][0]{
+  pageBuilder[0]{
+      heading,
+      heroDescription,
+  }
+ }`;
 
-export default function Home({ homePage }) {
-  // console.log(homePage);
-  // const hero = homePage[0].pageBuilder;
-  const h1 = homePage[0].pageBuilder[0].heading;
-  const h2 = homePage[0].pageBuilder[3].sectionTitle;
-  console.log(h1);
-  console.log(h2);
+const calendarQuery = `*[_type == 'homePage'][0]{
+  pageBuilder[1]{
+      sectionTitle,
+  }
+ }`;
+
+const aboutQuery = `*[_type == 'homePage'][0]{
+  pageBuilder[2]{
+    imageOne,
+    imageTwo
+  }
+ }`;
+
+export default function Home({ hero, calendar, aboutImages }) {
+  // Hero
+  const h1 = hero.pageBuilder.heading;
+  const heroDescription = hero.pageBuilder.heroDescription;
+
+  // Calendar
+  const calendarTitle = calendar.pageBuilder.sectionTitle;
+
+  // About images
+  const imageOne = aboutImages?.pageBuilder.imageOne;
+  const imageTwo = aboutImages?.pageBuilder.imageTwo;
+  console.log(aboutImages.imageOne);
+
+  // News
 
   return (
     <div className={styles.container}>
@@ -30,42 +51,14 @@ export default function Home({ homePage }) {
       </Head>
 
       <main className={styles.main}>
-        {/* <h1 className={styles.title}>{hero.heading}</h1> */}
+        <h1 className={styles.title}>{h1}</h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        <p className={styles.description}>{heroDescription}</p>
 
-        <div className={styles.grid}>
-          <a href='https://nextjs.org/docs' className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+        <h2 className={styles.title}>{calendarTitle}</h2>
 
-          <a href='https://nextjs.org/learn' className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href='https://github.com/vercel/next.js/tree/canary/examples'
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href='https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app'
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <img src={urlFor(imageOne).url()} />
+        <img src={urlFor(imageTwo).url()} />
       </main>
 
       <footer className={styles.footer}>
@@ -85,7 +78,9 @@ export default function Home({ homePage }) {
 }
 
 export async function getStaticProps() {
-  const homePage = await sanityClient.fetch(homePageQuery);
-  // Assign homePage to props
-  return { props: { homePage } };
+  const hero = await sanityClient.fetch(heroQuery);
+  const calendar = await sanityClient.fetch(calendarQuery);
+  const aboutImages = await sanityClient.fetch(aboutQuery);
+  // Assign heroQuery to props
+  return { props: { hero, calendar, aboutImages } };
 }
