@@ -1,4 +1,4 @@
-import { GrHome } from 'react-icons/gr';
+import { HiOutlineNewspaper } from 'react-icons/hi';
 
 export default {
   // Setup a 'document' type to house the page builder field
@@ -6,7 +6,7 @@ export default {
   name: 'newsPage',
   title: 'Händelser i butiken',
   type: 'document',
-  icon: GrHome,
+  icon: HiOutlineNewspaper,
   fields: [
     {
       name: 'title',

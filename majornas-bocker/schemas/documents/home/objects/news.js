@@ -9,17 +9,19 @@ export default {
       type: 'string',
     },
     {
-      name: 'storeLinkText',
-      title: 'Store link text',
-      description: 'Store link text goes here',
-      type: 'string',
-    },
-    {
-      name: 'storeLinkUrl',
-      title: 'Store Link Url',
-      description:
-        'Ej färdig. Kunden ska kunna välja länk till någon undersida här.',
-      type: 'url',
+      name: 'internalLink',
+      title: 'Länk till undersida',
+      description: 'Välj en undersida',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'aboutPage' }, { type: 'newsPage' }],
+        },
+      ],
+      validation: (Rule) => [
+        Rule.required().max(1).error('Välj max en undersida'),
+      ],
     },
     {
       name: 'imageStore',

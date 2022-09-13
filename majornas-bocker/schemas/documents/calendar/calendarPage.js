@@ -1,4 +1,4 @@
-import { GrHome } from 'react-icons/gr';
+import { AiOutlineCalendar } from 'react-icons/ai';
 
 export default {
   // Setup a 'document' type to house the page builder field
@@ -6,7 +6,7 @@ export default {
   name: 'calendarPage',
   title: 'Kalender',
   type: 'document',
-  icon: GrHome,
+  icon: AiOutlineCalendar,
   fields: [
     {
       name: 'title',
