@@ -1,10 +1,10 @@
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
 
-import { SanityClient, urlFor } from "next-sanity";
-import { sanityClient } from "../lib/sanity";
+import { SanityClient, urlFor } from 'next-sanity';
+import { sanityClient } from '../lib/sanity';
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 
@@ -20,7 +20,7 @@ export default function Home({ homePage, aboutPage }) {
     <div className={styles.container}>
       <Head>
         <title>Om oss</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <main className={styles.main}>
