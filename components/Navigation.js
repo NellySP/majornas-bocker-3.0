@@ -24,8 +24,7 @@ export default function Navigation() {
       .catch(console.error);
   }, []);
 
-  console.log(navItems.nav);
-
+  // console.log(navItems.nav);
   const links = navItems.nav;
 
   return (
@@ -45,6 +44,9 @@ export default function Navigation() {
                 </Link>
               </li>
             ))}
+          <li>
+            <a href='#footer'>Kontakta oss</a>
+          </li>
         </ul>
       </nav>
     </>

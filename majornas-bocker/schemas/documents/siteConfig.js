@@ -23,7 +23,11 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{ type: 'homePage' }, { type: 'aboutPage' }],
+          to: [
+            { type: 'homePage' },
+            { type: 'aboutPage' },
+            { type: 'newsPage' },
+          ],
         },
       ],
     },
