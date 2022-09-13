@@ -9,6 +9,11 @@ export default {
   icon: FaBeer,
   fields: [
     {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
       name: 'pageBuilder',
       title: 'Sektioner för footern',
       type: 'array',
