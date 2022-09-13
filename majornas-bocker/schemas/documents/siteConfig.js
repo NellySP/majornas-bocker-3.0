@@ -1,7 +1,10 @@
+import { AiOutlineSetting } from 'react-icons/ai';
+
 export default {
   name: 'siteConfig',
   type: 'document',
   title: 'Site Settings',
+  icon: AiOutlineSetting,
   fields: [
     {
       name: 'title',

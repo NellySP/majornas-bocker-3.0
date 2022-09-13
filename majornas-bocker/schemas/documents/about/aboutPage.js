@@ -1,4 +1,4 @@
-import { GrHome } from 'react-icons/gr';
+import { BsPeople } from 'react-icons/io';
 
 export default {
   // Setup a 'document' type to house the page builder field
@@ -6,7 +6,7 @@ export default {
   name: 'aboutPage',
   title: 'Om oss',
   type: 'document',
-  icon: GrHome,
+  icon: BsPeople,
   fields: [
     {
       name: 'title',

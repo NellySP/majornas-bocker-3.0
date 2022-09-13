@@ -25,11 +25,19 @@ export default {
       },
     },
     {
-      name: 'internalLinkUrl',
-      title: 'Internal Link Url',
-      description:
-        'Ej färdig. Kunden ska kunna välja länk till någon undersida här.',
-      type: 'url',
+      name: 'internalLink',
+      title: 'Länk till undersida',
+      description: 'Välj en sida',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'aboutPage' }, { type: 'newsPage' }],
+        },
+      ],
+      validation: (Rule) => [
+        Rule.required().max(1).error('Välj max en undersida'),
+      ],
     },
   ],
 };
