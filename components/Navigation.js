@@ -13,12 +13,12 @@ export default function Navigation() {
       .fetch(
         `*[_type == "siteConfig"][0]{
           title,
-        nav[]->{ 
-          _id,
-          slug,
-          title
-        }
-      }`
+          nav[]->{ 
+            _id,
+            slug,
+            title
+          }
+        }`
       )
       .then((data) => setNavItems(data))
       .catch(console.error);

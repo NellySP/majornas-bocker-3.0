@@ -55,7 +55,7 @@ export default function Home({ hero, calendar, aboutImages }) {
 
         <p className={styles.description}>{heroDescription}</p>
 
-        <h2 className={styles.title}>{calendarTitle}</h2>
+        <h2>{calendarTitle}</h2>
 
         <img src={urlFor(imageOne).url()} />
         <img src={urlFor(imageTwo).url()} />
