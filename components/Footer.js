@@ -7,7 +7,7 @@ export default function Footer() {
   const [footer, setFooter] = useState([]);
 
   useEffect(() => {
-      sanityClient
+    sanityClient
       .fetch(
         `*[_type == 'footer'][0]{
           pageBuilder[]{
@@ -18,27 +18,30 @@ export default function Footer() {
         }`
       )
       .then((data) => setFooter(data))
-    .catch(console.error);
+      .catch(console.error);
   }, []);
-  
+
   const footerItems = footer.pageBuilder;
   console.log(footerItems);
 
-  const footerItem1 = footerItems[0];
+  const footerItem1 = footerItems;
   console.log(footerItem1);
-
 
   return (
     <footer id='footer'>
+      <ul>
+        {footerItems &&
+          footerItems.map((footerItem) => (
+            <li key={footerItem._id}>
+              <a>{footer.heading}</a>
+            </li>
+          ))}
+        <li>
+          
+        </li>
+      </ul>
       <p>Hi yes this is indeed an awesome footer</p>
       {/* <p>{heading}</p> */}
     </footer>
   );
 }
-
-
-// export async function getStaticProps() {
-//   const footer = await sanityClient.fetch(footerQuery);
-
-//   return { props: { footer } };
-// }
