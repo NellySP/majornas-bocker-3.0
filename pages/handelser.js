@@ -11,14 +11,21 @@ const newsPageQuery = `*[_type == 'newsPage']{
   pageBuilder
 }`;
 
-export default function Home({ newsPage }) {
+const newsPageImageQuery = `*[_type == 'newsPage']{
+  pageBuilder[]{image}
+  }`;
+
+export default function Home({ newsPage, newsPageImages }) {
   const newsHeading = newsPage[0].pageBuilder[0].heading;
   const newsText = newsPage[0].pageBuilder[0].heroDescription;
   const noticeHeading = newsPage[0].pageBuilder[0].noticeOfInterest;
   const noticeText = newsPage[0].pageBuilder[0].noticeText;
 
   const singleNews = newsPage[0].pageBuilder;
-  console.log(singleNews);
+  // console.log(singleNews);
+
+  const images = newsPageImages[0].pageBuilder;
+  console.log(images);
 
   return (
     <div className={styles.container}>
@@ -37,7 +44,10 @@ export default function Home({ newsPage }) {
         {singleNews &&
           singleNews.map((news) => (
             <div>
-              {/* <img src={urlFor(news.image.asset._ref).url()} /> */}
+              {images &&
+                images
+                  .slice(1)
+                  .map((image) => <img src={urlFor(image).url()} />)}
               <p>{news.heading}</p>
               <p>{news.text}</p>
             </div>
@@ -51,6 +61,7 @@ export default function Home({ newsPage }) {
 
 export async function getStaticProps() {
   const newsPage = await sanityClient.fetch(newsPageQuery);
+  const newsPageImages = await sanityClient.fetch(newsPageImageQuery);
   // Assign aboutPage to props
-  return { props: { newsPage } };
+  return { props: { newsPage, newsPageImages } };
 }
