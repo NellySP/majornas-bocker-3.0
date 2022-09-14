@@ -12,7 +12,6 @@ export default function Footer() {
         `*[_type == 'footer'][0]{
           pageBuilder[]{
             heading,
-            paragraphs,
             portableText
           }
         }`
@@ -29,17 +28,31 @@ export default function Footer() {
 
   return (
     <footer id='footer'>
-      <ul>
+      <div>
         {footerItems &&
           footerItems.map((footerItem) => (
-            <li key={footerItem._id}>
-              <a>{footer.heading}</a>
-            </li>
+            <div key={footerItem._id}>
+              <ul className="footerItemHeading">{footerItem.heading}</ul>
+                {/* <li>{footerItem.portableText[0].children[0].text}</li> */}
+                {/* <li>{footerItem.portableText[0].children[1].text}</li> */}
+                
+              { footerItem.portableText[0].children.map( (paragraph) => {
+                
+                return (
+                  paragraph && 
+                  <li>{paragraph.text}</li>
+                )
+                
+              })}
+
+
+              {console.log(footerItem.portableText)}
+              
+              {/* {console.log(footerItem.portableText[0].children[0].text)} */}
+
+            </div>
           ))}
-        <li>
-          
-        </li>
-      </ul>
+      </div>
       <p>Hi yes this is indeed an awesome footer</p>
       {/* <p>{heading}</p> */}
     </footer>
