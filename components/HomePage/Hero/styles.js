@@ -21,6 +21,7 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  padding: 3rem 0;
 
   h1 {
     font-size: var(--h1-mobile);
@@ -30,8 +31,9 @@ export const HeroContent = styled.div`
   @media ${device.tablet} {
     h1 {
       font-size: var(--h1-tablet);
+      line-height: 72px;
       margin-bottom: 2rem;
-      /* width: 95%; */
+      width: 100%;
     }
 
     p {
@@ -44,6 +46,7 @@ export const HeroContent = styled.div`
 
     h1 {
       font-size: var(--h1-desktop);
+      line-height: 90px;
     }
 
     p {
@@ -73,10 +76,15 @@ export const HeroImageWrapper = styled.div`
 `;
 
 export const HeroImage = styled.img`
-  width: 35vh;
+  min-width: 216px;
+  width: 60vw;
+
+  @media ${device.tablet} {
+    width: 40vw;
+  }
+
   @media ${device.laptop} {
-    width: 100vh;
-    max-width: 597px;
-    height: auto;
+    width: 35vw;
+    /* height: auto; */
   }
 `;
