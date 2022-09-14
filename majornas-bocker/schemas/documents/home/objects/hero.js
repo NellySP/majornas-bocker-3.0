@@ -33,17 +33,12 @@ export default {
       type: 'url',
     },
     {
-      name: 'internalLinks',
-      title: 'Internal links',
-      description: 'Ej färdig. Behöver kopplas till undersidor',
-      type: 'array',
-      of: [
-        {
-          name: 'internal1',
-          title: 'Link name',
-          type: 'string',
-        },
-      ],
+      name: 'heroImage',
+      title: 'Hero Image',
+      type: 'image',
+      option: {
+        hotspot: true,
+      },
     },
 
     // {

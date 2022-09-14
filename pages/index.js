@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import Hero from '../components/HomePage/Hero';
 
 import { sanityClient, urlFor } from '../lib/sanity';
 
@@ -10,6 +10,9 @@ const heroQuery = `*[_type == 'homePage'][0]{
   pageBuilder[0]{
       heading,
       heroDescription,
+      mainLink,
+      url,
+      heroImage,
   }
  }`;
 
@@ -37,6 +40,10 @@ export default function Home({ hero, calendar, aboutImages }) {
   // Hero
   const h1 = hero.pageBuilder.heading;
   const heroDescription = hero.pageBuilder.heroDescription;
+  const heroLinkText = hero.pageBuilder.mainLink;
+  const heroLinkTextUrl = hero.pageBuilder.url;
+  const heroImage = hero.pageBuilder.heroImage;
+  console.log(heroImage);
 
   // Calendar
   const calendarTitle = calendar.pageBuilder.sectionTitle;
@@ -44,22 +51,24 @@ export default function Home({ hero, calendar, aboutImages }) {
   // About images
   const imageOne = aboutImages?.pageBuilder.imageOne;
   const imageTwo = aboutImages?.pageBuilder.imageTwo;
-  // console.log(aboutImages.imageOne);
+  console.log(imageOne);
 
   // News
 
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>{h1}</h1>
-
-        <p className={styles.description}>{heroDescription}</p>
-
-        <h2>{calendarTitle}</h2>
-
-        <img src={urlFor(imageOne).url()} />
-        <img src={urlFor(imageTwo).url()} />
-      </main>
+    <div>
+      <Hero
+        heading={h1}
+        description={heroDescription}
+        linkText={heroLinkText}
+        linkUrl={heroLinkTextUrl}
+        heroImage={heroImage}
+      ></Hero>
+      {/* <h1>{h1}</h1>
+      <p>{heroDescription}</p> */}
+      <h2>{calendarTitle}</h2>
+      <img src={urlFor(imageOne).url()} />
+      <img src={urlFor(imageTwo).url()} />
     </div>
   );
 }

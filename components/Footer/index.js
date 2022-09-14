@@ -1,9 +1,10 @@
 import React from 'react';
+import { FooterContainer } from './styles';
 
 export default function () {
   return (
-    <div id='footer'>
+    <FooterContainer id='footer'>
       <p>Hi yes this is indeed a footer</p>
-    </div>
+    </FooterContainer>
   );
 }

@@ -1,9 +1,9 @@
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
 
-import { sanityClient, urlFor } from "../lib/sanity";
+import { sanityClient, urlFor } from '../lib/sanity';
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 
@@ -11,7 +11,7 @@ const newsPageQuery = `*[_type == 'newsPage']{
   pageBuilder
 }`;
 
-const newsPageImageQuery = `*[_type == 'newsPage']{
+const newsPageImageQuery = `*[_type == 'newsPage'][0]{
   pageBuilder[]{image}
   }`;
 
@@ -24,14 +24,14 @@ export default function Home({ newsPage, newsPageImages }) {
   const singleNews = newsPage[0].pageBuilder;
   // console.log(singleNews);
 
-  const images = newsPageImages[0].pageBuilder;
+  const images = newsPageImages?.pageBuilder;
   console.log(images);
 
   return (
     <div className={styles.container}>
       <Head>
         <title>Om oss</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
 
       <main className={styles.main}>
@@ -45,9 +45,9 @@ export default function Home({ newsPage, newsPageImages }) {
           singleNews.map((news) => (
             <div>
               {images &&
-                images
-                  .slice(1)
-                  .map((image) => <img src={urlFor(image).url()} />)}
+                images.map((image) => (
+                  <li>{/* <img src={urlFor(image).url()} /> */}</li>
+                ))}
               <p>{news.heading}</p>
               <p>{news.text}</p>
             </div>
