@@ -28,12 +28,13 @@ const StyledNews = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
   }
   .divider {
     background-color: #b1d2c3;
     height: 150px;
     width: 30px;
+    margin: 5%;
   }
 
   hr {
@@ -59,6 +60,18 @@ const StyledNews = styled.div`
 
   a {
     color: black;
+    font-family: "Azeret Mono", monospace;
+    font-size: var(--base-size);
+  }
+
+  @media screen and (max-width: 670px) {
+    .hero-container {
+      flex-direction: column;
+    }
+
+    .news-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 `;
 
@@ -70,9 +83,10 @@ export default function Home({ newsPage }) {
   const singleNews = newsPage[0].pageBuilder;
 
   return (
-    <div className={styles.container}>
+    <div>
+      {/* <div className={styles.container}> */}
       <Head>
-        <title>Händelser i butiken</title>
+        <title>{newsHeading}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -99,12 +113,9 @@ export default function Home({ newsPage }) {
                   <div className={styles.gallery}>
                     <img src={urlFor(news.image).url()} />
                   </div>
-                  <h4>{news.heading}</h4>
+                  <h2>{news.heading}</h2>
                   <p>{news.text}</p>
-                  {/* Does not work >:( */}
-                  <Link href={news.link}>
-                    <a>Intresseanmälan här!</a>
-                  </Link>
+                  <a href={news.link}>Intresseanmälan här!</a>
                 </div>
               ))}
           </div>
