@@ -78,7 +78,7 @@ const StyledNews = styled.div`
 export default function Home({ newsPage }) {
   const newsHeading = newsPage[0].pageBuilder[0].heading;
   const newsText = newsPage[0].pageBuilder[0].heroDescription;
-  const noticeHeading = newsPage[0].pageBuilder[0].noticeOfInterest;
+  const attendanceeHeading = newsPage[0].pageBuilder[0].attendanceHeading;
   const noticeText = newsPage[0].pageBuilder[0].noticeText;
   const singleNews = newsPage[0].pageBuilder;
 
