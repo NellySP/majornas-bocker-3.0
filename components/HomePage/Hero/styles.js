@@ -52,7 +52,7 @@ export const HeroContent = styled.div`
     p {
       font-size: var(--h2-desktop);
       line-height: 113%;
-      width: 60%;
+      width: 75%;
       margin-bottom: 4rem;
     }
   }
