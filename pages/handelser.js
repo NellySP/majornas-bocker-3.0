@@ -16,14 +16,18 @@ const StyledNews = styled.div`
   .hero-container {
     display: flex;
     flex-direction: row;
-    margin: 4%;
   }
   .hero-section-one {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
   }
+
+  h1 {
+    width: 80%;
+  }
+
   .hero-section-two {
     display: flex;
     flex-direction: row;
@@ -32,8 +36,8 @@ const StyledNews = styled.div`
   }
   .divider {
     background-color: #b1d2c3;
-    height: 150px;
-    width: 30px;
+    height: 30%;
+    width: 36px;
     margin: 5%;
   }
 
@@ -72,6 +76,10 @@ const StyledNews = styled.div`
 
     .news-grid {
       grid-template-columns: repeat(1, 1fr);
+    }
+
+    h1 {
+      width: 100%;
     }
   }
 `;
