@@ -28,6 +28,7 @@ export default {
           type: 'reference',
           to: [
             { type: 'homePage' },
+            { type: 'calendarPage' },
             { type: 'aboutPage' },
             { type: 'newsPage' },
           ],
