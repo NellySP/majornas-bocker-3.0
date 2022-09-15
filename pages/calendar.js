@@ -28,11 +28,6 @@ export default function Home({ calendarPage, calendarPageImage }) {
   console.log(images); */
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Kalender</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
 
     <div>
         <CalendarHero 
