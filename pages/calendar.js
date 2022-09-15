@@ -22,11 +22,6 @@ export default function Home({ calendarPage, calendarPageImage }) {
     const attendanceText = calendarPage[0].pageBuilder[0].attendanceText;
     const calendarPosts = calendarPage[0].pageBuilder;
 
-<<<<<<< Updated upstream
-=======
-    const image = calendarPage[0].pageBuilder.image;
-
->>>>>>> Stashed changes
 ;
 
 /*   const images = newsPageImages[0].pageBuilder;
@@ -45,7 +40,6 @@ export default function Home({ calendarPage, calendarPageImage }) {
         <h2>{attendanceHeading}</h2>
         <p>{attendanceText}</p>
         {/* På nåt sätt exkludera det första resultatet - händelser i butik - mha javascript. Kan man göra det i loopen på något sätt? Also, få tag i bildfan */}
-<<<<<<< Updated upstream
         {calendarPosts &&
           calendarPosts.slice(1).map((posts) => (
             // console.log(posts?.image)
@@ -59,20 +53,6 @@ export default function Home({ calendarPage, calendarPageImage }) {
               <p>{posts.text}</p>
             </div>
           ))}
-=======
-         {calendarPosts &&
-            calendarPosts.slice(1).map(
-              (posts) => (
-                (
-                  <div key={posts._key}>
-                     .map((image) => <img src={urlFor(image).url()} />)
-                    <h2>{posts.heading}</h2>
-                    <p>{posts.text}</p>
-                  </div>
-                )
-              )
-            )}
->>>>>>> Stashed changes
       </main>
 
 
