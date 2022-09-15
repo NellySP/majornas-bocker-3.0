@@ -21,7 +21,7 @@ export default function Hero({
         <h1>{heading}</h1>
         <p>{description}</p>
         <a href={linkUrl}>{linkText}</a>
-      </HeroContent>
+      </HeroContent>   
       <HeroImageWrapper>
         <HeroImage src={urlFor(heroImage).url()} />
       </HeroImageWrapper>

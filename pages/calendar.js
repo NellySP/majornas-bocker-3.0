@@ -1,7 +1,9 @@
+
+import styles from "../styles/Home.module.css";
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../styles/Home.module.css';
+import CalendarHero from '../components/CalendarPage/CalendarHero';
 
 import { sanityClient, urlFor } from '../lib/sanity';
 
@@ -32,11 +34,14 @@ export default function Home({ calendarPage, calendarPageImage }) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className={styles.main}>
-        <h1>{calendarHeading}</h1>
-        <p>{calendarText}</p>
-        <h2>{attendanceHeading}</h2>
-        <p>{attendanceText}</p>
+    <div>
+        <CalendarHero 
+        calendarHeading={calendarHeading}
+        calendarText={calendarText}
+        attendanceHeading={attendanceHeading}
+        attendanceText={attendanceText}
+        />
+    
         {/* På nåt sätt exkludera det första resultatet - händelser i butik - mha javascript. Kan man göra det i loopen på något sätt? Also, få tag i bildfan */}
         {calendarPosts &&
           calendarPosts.slice(1).map((posts) => (
@@ -51,7 +56,8 @@ export default function Home({ calendarPage, calendarPageImage }) {
               <p>{posts.text}</p>
             </div>
           ))}
-      </main>
+
+
     </div>
   );
 }
