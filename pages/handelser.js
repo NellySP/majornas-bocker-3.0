@@ -5,6 +5,7 @@ import styles from "../styles/Home.module.css";
 import styled from "styled-components";
 
 import { sanityClient, urlFor } from "../lib/sanity";
+import NewsHero from "../components/NewsPage/NewsHero";
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 
@@ -13,39 +14,7 @@ const newsPageQuery = `*[_type == 'newsPage']{
 }`;
 
 const StyledNews = styled.div`
-  .hero-container {
-    display: flex;
-    flex-direction: row;
-  }
-  .hero-section-one {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
-  h1 {
-    width: 80%;
-  }
-
-  .hero-section-two {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-end;
-  }
-  .divider {
-    background-color: #b1d2c3;
-    height: 30%;
-    width: 36px;
-    margin: 5%;
-  }
-
-  hr {
-    border-top: 1px solid black;
-    width: 100%;
-    margin-bottom: 5%;
-  }
+ 
 
   .news-grid {
     display: grid;
@@ -90,32 +59,16 @@ export default function Home({ newsPage }) {
   const noticeHeading = newsPage[0].pageBuilder[0].noticeOfInterest;
   const noticeText = newsPage[0].pageBuilder[0].noticeText;
   const singleNews = newsPage[0].pageBuilder;
-  console.log(singleNews);
 
   return (
     <div>
-      {/* <div className={styles.container}> */}
-      <Head>
-        <title>{newsHeading}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <NewsHero
+      newsHeading={newsHeading}
+      newsText={newsText}
+      noticeHeading={noticeHeading}
+      noticeText={noticeText} 
+      />
 
-      <main className={styles.main}>
-        <StyledNews>
-          <div className="hero-container">
-            <div className="hero-section-one">
-              <h1>{newsHeading}</h1>
-              <p>{newsText}</p>
-            </div>
-            <div className="hero-section-two">
-              <div className="divider"></div>
-              <div>
-                <h2>{noticeHeading}</h2>
-                <p>{noticeText}</p>
-              </div>
-            </div>
-          </div>
-          <hr></hr>
           <div className="news-grid">
             {singleNews &&
               singleNews.slice(1).map((news) => (
@@ -129,8 +82,8 @@ export default function Home({ newsPage }) {
                 </div>
               ))}
           </div>
-        </StyledNews>
-      </main>
+
+    
       <footer className={styles.footer}></footer>
     </div>
   );

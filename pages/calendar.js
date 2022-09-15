@@ -24,8 +24,7 @@ export default function Home({ calendarPage, calendarPageImage }) {
   const attendanceText = calendarPage[0].pageBuilder[0].attendanceText;
   const calendarPosts = calendarPage[0].pageBuilder;
 
-  /*   const images = newsPageImages[0].pageBuilder;
-  console.log(images); */
+
 
   return (
 
