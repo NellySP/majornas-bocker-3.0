@@ -15,13 +15,15 @@ const calendarPageImageQuery = `*[_type == 'newsPage']{
   pageBuilder[]{image}
   }`;
 
-export default function Home({ calendarPage }) {
+export default function Home({ calendarPage, calendarPageImage }) {
   const calendarHeading = calendarPage[0].pageBuilder[0].heading;
   const calendarText = calendarPage[0].pageBuilder[0].heroDescription;
   const attendanceHeading = calendarPage[0].pageBuilder[0].attendanceHeading;
   const attendanceText = calendarPage[0].pageBuilder[0].attendanceText;
   const calendarPosts = calendarPage[0].pageBuilder;
-  const image = calendarPage[0].pageBuilder[1].image;
+
+  /*   const images = newsPageImages[0].pageBuilder;
+  console.log(images); */
 
   return (
     <div className={styles.container}>
