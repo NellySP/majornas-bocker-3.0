@@ -36,7 +36,7 @@ export default function GridSection({
 
   const newsLink = internalLinks[0];
   const newsLinkUrl = newsLink?.slug.current;
-  console.log(newsLink?.slug.current);
+  // console.log(newsLink?.slug.current);
 
   return (
     <GridContainer>
@@ -71,6 +71,9 @@ export default function GridSection({
       </GridColumn>
 
       <GridColumn>
+        <StoreImageWrapper>
+          <StoreImage src={storeImage} />
+        </StoreImageWrapper>
         <CalendarBox>
           <h2>{calendarHeading}</h2>
           <CalendarData>
@@ -93,9 +96,6 @@ export default function GridSection({
           </CalendarData>
           <a href={calendarPageUrl}>{calendarPageLinkText}</a>
         </CalendarBox>
-        <StoreImageWrapper>
-          <StoreImage src={urlFor(storeImage).url()} />
-        </StoreImageWrapper>
       </GridColumn>
     </GridContainer>
   );
@@ -105,6 +105,5 @@ GridSection.propTypes = {
   calendarHeading: propTypes.string,
   calendarPageLinkText: propTypes.string,
   calendarPageUrl: propTypes.string,
-
-  storeImage: propTypes.object,
+  storeImage: propTypes.string,
 };
