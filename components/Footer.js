@@ -21,10 +21,7 @@ export default function Footer() {
   }, []);
 
   const footerItems = footer.pageBuilder;
-  console.log(footerItems);
-
-  const footerItem1 = footerItems;
-  console.log(footerItem1);
+  // console.log(footerItems);
 
   return (
     <footer id='footer'>
@@ -33,28 +30,38 @@ export default function Footer() {
           footerItems.map((footerItem) => (
             <div key={footerItem._id}>
               <ul className="footerItemHeading">{footerItem.heading}</ul>
-                {/* <li>{footerItem.portableText[0].children[0].text}</li> */}
-                {/* <li>{footerItem.portableText[0].children[1].text}</li> */}
+
+              { footerItem.portableText.map( (paragraph) => {
                 
-              { footerItem.portableText[0].children.map( (paragraph) => {
-                
-                return (
-                  paragraph && 
-                  <li>{paragraph.text}</li>
-                )
+                const link = paragraph.markDefs[0];
+
+                if (link) {
+                  return (
+                    <div key={paragraph._id}>
+                  <li className="footerItemParagraph">
+                    <a href={link.href}>
+                    {paragraph.children[0].text}
+                    </a>
+                  </li>
+                  </div>
+                  )
+                }
+                else {
+                  return (
+                    <div key={paragraph._id}>
+                  <li className="footerItemParagraph">
+                    {paragraph.children[0].text}
+                  </li>
+                  </div>
+                  )
+                }
                 
               })}
-
-
-              {console.log(footerItem.portableText)}
-              
-              {/* {console.log(footerItem.portableText[0].children[0].text)} */}
 
             </div>
           ))}
       </div>
-      <p>Hi yes this is indeed an awesome footer</p>
-      {/* <p>{heading}</p> */}
+
     </footer>
   );
 }
