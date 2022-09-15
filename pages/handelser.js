@@ -62,6 +62,7 @@ const StyledNews = styled.div`
     color: black;
     font-family: "Azeret Mono", monospace;
     font-size: var(--base-size);
+    text-decoration: underline;
   }
 
   @media screen and (max-width: 670px) {
@@ -81,6 +82,7 @@ export default function Home({ newsPage }) {
   const noticeHeading = newsPage[0].pageBuilder[0].noticeOfInterest;
   const noticeText = newsPage[0].pageBuilder[0].noticeText;
   const singleNews = newsPage[0].pageBuilder;
+  console.log(singleNews);
 
   return (
     <div>
@@ -109,7 +111,7 @@ export default function Home({ newsPage }) {
           <div className="news-grid">
             {singleNews &&
               singleNews.slice(1).map((news) => (
-                <div className="news-grid-item">
+                <div className="news-grid-item" key={news._key}>
                   <div className={styles.gallery}>
                     <img src={urlFor(news.image).url()} />
                   </div>
