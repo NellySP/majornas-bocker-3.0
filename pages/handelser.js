@@ -1,10 +1,10 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-import styled from 'styled-components';
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+import styled from "styled-components";
 
-import { sanityClient, urlFor } from '../lib/sanity';
+import { sanityClient, urlFor } from "../lib/sanity";
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 
@@ -60,7 +60,7 @@ const StyledNews = styled.div`
 
   a {
     color: black;
-    font-family: 'Azeret Mono', monospace;
+    font-family: "Azeret Mono", monospace;
     font-size: var(--base-size);
   }
 
@@ -78,7 +78,7 @@ const StyledNews = styled.div`
 export default function Home({ newsPage }) {
   const newsHeading = newsPage[0].pageBuilder[0].heading;
   const newsText = newsPage[0].pageBuilder[0].heroDescription;
-  const attendanceeHeading = newsPage[0].pageBuilder[0].attendanceHeading;
+  const noticeHeading = newsPage[0].pageBuilder[0].noticeOfInterest;
   const noticeText = newsPage[0].pageBuilder[0].noticeText;
   const singleNews = newsPage[0].pageBuilder;
 
@@ -87,18 +87,18 @@ export default function Home({ newsPage }) {
       {/* <div className={styles.container}> */}
       <Head>
         <title>{newsHeading}</title>
-        <link rel='icon' href='/favicon.ico' />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <StyledNews>
-          <div className='hero-container'>
-            <div className='hero-section-one'>
+          <div className="hero-container">
+            <div className="hero-section-one">
               <h1>{newsHeading}</h1>
               <p>{newsText}</p>
             </div>
-            <div className='hero-section-two'>
-              <div className='divider'></div>
+            <div className="hero-section-two">
+              <div className="divider"></div>
               <div>
                 <h2>{noticeHeading}</h2>
                 <p>{noticeText}</p>
@@ -106,10 +106,10 @@ export default function Home({ newsPage }) {
             </div>
           </div>
           <hr></hr>
-          <div className='news-grid'>
+          <div className="news-grid">
             {singleNews &&
               singleNews.slice(1).map((news) => (
-                <div className='news-grid-item'>
+                <div className="news-grid-item">
                   <div className={styles.gallery}>
                     <img src={urlFor(news.image).url()} />
                   </div>
