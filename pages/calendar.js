@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+=======
+import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
+import CalendarHero from '../components/CalendarPage/CalendarHero';
+>>>>>>> Stashed changes
 
 import { sanityClient, urlFor } from "../lib/sanity";
 
@@ -28,6 +35,7 @@ export default function Home({ calendarPage, calendarPageImage }) {
   console.log(images); */
 
   return (
+<<<<<<< Updated upstream
     <div className={styles.container}>
       <Head>
         <title>Kalender</title>
@@ -39,6 +47,16 @@ export default function Home({ calendarPage, calendarPageImage }) {
         <p>{calendarText}</p>
         <h2>{attendanceHeading}</h2>
         <p>{attendanceText}</p>
+=======
+    <div>
+        <CalendarHero 
+        calendarHeading={calendarHeading}
+        calendarText={calendarText}
+        attendanceHeading={attendanceHeading}
+        attendanceText={attendanceText}
+        />
+    
+>>>>>>> Stashed changes
         {/* På nåt sätt exkludera det första resultatet - händelser i butik - mha javascript. Kan man göra det i loopen på något sätt? Also, få tag i bildfan */}
         {calendarPosts &&
           calendarPosts.slice(1).map((posts) => (
@@ -53,9 +71,12 @@ export default function Home({ calendarPage, calendarPageImage }) {
               <p>{posts.text}</p>
             </div>
           ))}
+<<<<<<< Updated upstream
       </main>
 
 
+=======
+>>>>>>> Stashed changes
     </div>
   );
 }
