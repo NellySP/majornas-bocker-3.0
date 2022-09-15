@@ -15,11 +15,13 @@ const calendarPageImageQuery = `*[_type == 'newsPage']{
   pageBuilder[]{image}
   }`;
 
-export default function Home({ calendarPage }) {
+export default function Home({ calendarPage, calendarPageImage }) {
     const calendarHeading = calendarPage[0].pageBuilder[0].heading;
     const calendarText = calendarPage[0].pageBuilder[0].heroDescription;
     const attendanceHeading = calendarPage[0].pageBuilder[0].attendanceHeading;
     const attendanceText = calendarPage[0].pageBuilder[0].attendanceText;
+    const calendarPosts = calendarPage[0].pageBuilder;
+
 ;
 
 /*   const images = newsPageImages[0].pageBuilder;
@@ -38,16 +40,19 @@ export default function Home({ calendarPage }) {
         <h2>{attendanceHeading}</h2>
         <p>{attendanceText}</p>
         {/* På nåt sätt exkludera det första resultatet - händelser i butik - mha javascript. Kan man göra det i loopen på något sätt? Also, få tag i bildfan */}
-{/*         {calendarPost &&
-          calendarPost.map((news) => (
-            <div>
-              {images &&
-                images
-                  .map((image) => <img src={urlFor(image).url()} />)}
-              <p>{news.heading}</p>
-              <p>{news.text}</p>
+        {calendarPosts &&
+          calendarPosts.slice(1).map((posts) => (
+            // console.log(posts?.image)
+            <div key={posts._key}>
+              {posts?.image == undefined ? (
+                <p>NO IMAGE. Här får vi lägga placeholder-bilder</p>
+              ) : (
+                <img src={urlFor(posts?.image).url()} />
+              )}
+              <h2>{posts.heading}</h2>
+              <p>{posts.text}</p>
             </div>
-          ))} */}
+          ))}
       </main>
 
 
