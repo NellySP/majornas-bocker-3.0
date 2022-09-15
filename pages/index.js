@@ -57,7 +57,8 @@ export default function Home({ hero, calendar, aboutImages, newsLink }) {
 
   // News
   const linkBlock = newsLink.pageBuilder.internalLink;
-  // console.log(linkBlock);
+  const shopImage = newsLink?.pageBuilder.imageStore;
+  console.log(shopImage);
 
   return (
     <div>
@@ -74,7 +75,7 @@ export default function Home({ hero, calendar, aboutImages, newsLink }) {
         calendarPageUrl={'http://localhost:3000/kalender'}
         linkBlockUrl={linkBlock.slug}
         linkBlockTitle={linkBlock.title}
-        storeImage={imageTwo}
+        storeImage={urlFor(shopImage).url()}
       />
       <img src={urlFor(imageOne).url()} />
       <img src={urlFor(imageTwo).url()} />

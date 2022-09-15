@@ -14,6 +14,14 @@ export default {
       type: 'string',
     },
     {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+      },
+    },
+    {
       name: 'pageBuilder',
       title: 'Kalender för saker som händer',
       type: 'array',
