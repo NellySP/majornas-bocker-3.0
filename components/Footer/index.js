@@ -21,7 +21,6 @@ export default function Footer() {
   }, []);
 
   const footerItems = footer.pageBuilder;
-  // console.log(footerItems);
 
   return (
     <FooterContainer id='footer'>
@@ -30,7 +29,7 @@ export default function Footer() {
           footerItems.map((footerItem) => (
             <FooterItem key={footerItem._id}>
               <FooterHeading>{footerItem.heading}</FooterHeading>
-              <FooterList className="footerItemHeading">
+              <FooterList>
 
               { footerItem.portableText.map( (paragraph) => {
                 
@@ -39,7 +38,7 @@ export default function Footer() {
                 if (link) {
                   return (
                   <FooterListItems key={paragraph._id}>
-                  <FooterListItem className="footerItemParagraph">
+                  <FooterListItem>
                     <FooterListItemLink href={link.href}>
                     {paragraph.children[0].text}
                     </FooterListItemLink>
@@ -50,7 +49,7 @@ export default function Footer() {
                 else {
                   return (
                     <FooterListItems key={paragraph._id}>
-                  <FooterListItem className="footerItemParagraph">
+                  <FooterListItem>
                     {paragraph.children[0].text}
                   </FooterListItem>
                   </FooterListItems>
