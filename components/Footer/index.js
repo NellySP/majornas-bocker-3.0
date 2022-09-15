@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { FooterContainer } from './styles';
 
 import { sanityClient } from '../lib/sanity';
 
@@ -24,7 +24,7 @@ export default function Footer() {
   // console.log(footerItems);
 
   return (
-    <footer id='footer'>
+    <FooterContainer id='footer'>
       <div>
         {footerItems &&
           footerItems.map((footerItem) => (
@@ -62,6 +62,6 @@ export default function Footer() {
           ))}
       </div>
 
-    </footer>
+    </FooterContainer>
   );
 }
