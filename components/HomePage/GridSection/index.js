@@ -45,20 +45,12 @@ export default function GridSection({
           <h2>{calendarHeading}</h2>
           <CalendarData>
             <div>
-              <li>
-                <span>Event name</span>: Host
-              </li>
-              <li>
-                <span>Date</span>: Onsdag 5/10
-              </li>
+              <li>Event name: Host</li>
+              <li>Date: Onsdag 5/10</li>
             </div>
             <div>
-              <li>
-                <span>Event name</span>: Host
-              </li>
-              <li>
-                <span>Date</span>: Onsdag 5/10
-              </li>
+              <li>Event name: Host</li>
+              <li>Date: Onsdag 5/10</li>
             </div>
           </CalendarData>
           <a href={calendarPageUrl}>{calendarPageLinkText}</a>
@@ -75,20 +67,12 @@ export default function GridSection({
           <h2>{calendarHeading}</h2>
           <CalendarData>
             <div>
-              <li>
-                <span>Event name</span>: Host
-              </li>
-              <li>
-                <span>Date</span>: Onsdag 5/10
-              </li>
+              <li>Event name: Host</li>
+              <li>Date: Onsdag 5/10</li>
             </div>
             <div>
-              <li>
-                <span>Event name</span>: Host
-              </li>
-              <li>
-                <span>Date</span>: Onsdag 5/10
-              </li>
+              <li>Event name: Host</li>
+              <li>Date: Onsdag 5/10</li>
             </div>
           </CalendarData>
           <a href={calendarPageUrl}>{calendarPageLinkText}</a>

@@ -4,7 +4,6 @@ import { device } from '../../styles/mediaQueries';
 export const MainWrapper = styled.div`
   width: 91.46vw;
   position: relative;
-  background-color: var(--white);
   min-height: 100vh;
   margin: 0 auto;
 

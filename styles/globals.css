@@ -61,6 +61,7 @@ body {
   font-weight: 500;
   font-size: var(--p);
   color: var(--black);
+  background-color: var(--white);
 }
 
 a {
