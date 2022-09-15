@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FooterContainer } from './styles';
+import { FooterContainer, FooterHeading, FooterItem, FooterList, FooterListItems, FooterListItem, FooterListItemLink } from './styles';
 
 import { sanityClient } from '../../lib/sanity';
 
@@ -21,15 +21,15 @@ export default function Footer() {
   }, []);
 
   const footerItems = footer.pageBuilder;
-  // console.log(footerItems);
 
   return (
     <FooterContainer id='footer'>
-      <div>
+ 
         {footerItems &&
           footerItems.map((footerItem) => (
-            <div key={footerItem._id}>
-              <ul className="footerItemHeading">{footerItem.heading}</ul>
+            <FooterItem key={footerItem._id}>
+              <FooterHeading>{footerItem.heading}</FooterHeading>
+              <FooterList>
 
               { footerItem.portableText.map( (paragraph) => {
                 
@@ -37,30 +37,29 @@ export default function Footer() {
 
                 if (link) {
                   return (
-                    <div key={paragraph._id}>
-                  <li className="footerItemParagraph">
-                    <a href={link.href}>
+                  <FooterListItems key={paragraph._id}>
+                  <FooterListItem>
+                    <FooterListItemLink href={link.href}>
                     {paragraph.children[0].text}
-                    </a>
-                  </li>
-                  </div>
+                    </FooterListItemLink>
+                  </FooterListItem>
+                  </FooterListItems>
                   )
                 }
                 else {
                   return (
-                    <div key={paragraph._id}>
-                  <li className="footerItemParagraph">
+                    <FooterListItems key={paragraph._id}>
+                  <FooterListItem>
                     {paragraph.children[0].text}
-                  </li>
-                  </div>
+                  </FooterListItem>
+                  </FooterListItems>
                   )
                 }
                 
               })}
-
-            </div>
+            </FooterList>
+            </FooterItem>
           ))}
-      </div>
 
     </FooterContainer>
   );
