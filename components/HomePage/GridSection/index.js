@@ -59,9 +59,11 @@ export default function GridSection({
                 singlePosts.slice(1).map((posts) => (
                   <div>
                     <li>
-                      <span>{posts.heading}</span> Host
+                      <span>Event</span>: {posts.heading}
                     </li>
-                    <li>{posts.date}</li>
+                    <li>
+                      <span>Datum</span>: {posts.date}
+                    </li>
                   </div>
                 ))}
           </CalendarData>
