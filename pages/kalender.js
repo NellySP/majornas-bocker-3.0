@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import CalendarHero from '../components/CalendarPage/CalendarHero';
+import Grid from '../components/CalendarPage/Grid';
 
 import { sanityClient, urlFor } from '../lib/sanity';
 
@@ -36,10 +37,9 @@ export default function Home({ calendarPage, calendarPageImage }) {
         attendanceText={attendanceText}
         />
     
-        {/* På nåt sätt exkludera det första resultatet - händelser i butik - mha javascript. Kan man göra det i loopen på något sätt? Also, få tag i bildfan */}
-        {calendarPosts &&
+      <Grid></Grid>
+      {/*   {calendarPosts &&
           calendarPosts.slice(1).map((posts) => (
-            // console.log(posts?.image)
             <div key={posts._key}>
               {posts?.image == undefined ? (
                 <p>NO IMAGE. Här får vi lägga placeholder-bilder</p>
@@ -49,7 +49,7 @@ export default function Home({ calendarPage, calendarPageImage }) {
               <h2>{posts.heading}</h2>
               <p>{posts.text}</p>
             </div>
-          ))}
+          ))} */}
 
 
     </div>
