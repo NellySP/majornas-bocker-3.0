@@ -19,33 +19,33 @@ import {
 export default function GridSection({
   calendarHeading,
   calendarPageLinkText,
+  calendarPageUrl,
   aboutImageOne,
   aboutImageTwo,
+  aboutPageLinkText,
+  aboutPageUrl,
+  newsPageLinkText,
+  newsPageUrl,
   storeImage,
 }) {
-  const [internalLinks, setInternalLinks] = useState([]);
+  const [calendarPosts, setCalendarPosts] = useState([]);
 
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[title in [ "Kalender", "Om oss", "Händelser i butiken" ]]{
-            title,
-            slug,
-          }`
+        `*[_type == 'calendarPage'][0]{
+          pageBuilder[]{
+            heading,
+            date,
+          }
+         }`
       )
-      .then((data) => setInternalLinks(data))
+      .then((data) => setCalendarPosts(data))
       .catch(console.error);
   }, []);
 
-  const calenderLinkUrl = internalLinks[0]?.slug.current;
-
-  const newsLink = internalLinks[1];
-  const newsLinkUrl = newsLink?.slug.current;
-
-  const aboutLink = internalLinks[2];
-  const aboutLinkUrl = aboutLink?.slug.current;
-
-  // console.log(newsLink?.slug.current);
+  console.log(calendarPosts.pageBuilder);
+  const singlePosts = calendarPosts.pageBuilder;
 
   return (
     <GridContainer>
@@ -53,33 +53,25 @@ export default function GridSection({
         <CalendarBox>
           <h2>{calendarHeading}</h2>
           <CalendarData>
-            <div>
-              <li>
-                <span>Event name:</span> Host
-              </li>
-              <li>Date: Onsdag 5/10</li>
-            </div>
-            <div>
-              <li>Event name: Host</li>
-              <li>Date: Onsdag 5/10</li>
-            </div>
-            <div>
-              <li>Event name: Host</li>
-              <li>Date: Onsdag 5/10</li>
-            </div>
-            <div>
-              <li>Event name: Host</li>
-              <li>Date: Onsdag 5/10</li>
-            </div>
+            {singlePosts == undefined
+              ? 'No posts'
+              : singlePosts &&
+                singlePosts.slice(1).map((posts) => (
+                  <div>
+                    <li>
+                      <span>{posts.heading}</span> Host
+                    </li>
+                    <li>{posts.date}</li>
+                  </div>
+                ))}
           </CalendarData>
-          {/* <a href={calendarPageUrl}>{calendarPageLinkText}</a> */}
-          <Link href={calenderLinkUrl == undefined ? '#' : calenderLinkUrl}>
+          <Link href={calendarPageUrl == undefined ? '#' : calendarPageUrl}>
             <a>{calendarPageLinkText}</a>
           </Link>
         </CalendarBox>
         <LinkBlock>
-          <Link href={newsLinkUrl == undefined ? '#' : newsLinkUrl}>
-            <a>{newsLink?.title}</a>
+          <Link href={newsPageUrl == undefined ? '#' : newsPageUrl}>
+            <a>{newsPageLinkText}</a>
           </Link>
         </LinkBlock>
       </GridColumn>
@@ -93,8 +85,8 @@ export default function GridSection({
             </div>
           </AboutImageWrapper>
           <AboutLinkBlock>
-            <Link href={aboutLinkUrl == undefined ? '#' : aboutLinkUrl}>
-              <a>{aboutLink?.title}</a>
+            <Link href={aboutPageUrl == undefined ? '#' : aboutPageUrl}>
+              <a>{aboutPageLinkText}</a>
             </Link>
           </AboutLinkBlock>
         </AboutContainer>
@@ -113,6 +105,10 @@ GridSection.propTypes = {
 
   aboutImageOne: propTypes.string,
   aboutImageTwo: propTypes.string,
+  aboutPageLinkText: propTypes.string,
+  aboutPageUrl: propTypes.string,
 
+  newsPageLinkText: propTypes.string,
+  newsPageUrl: propTypes.string,
   storeImage: propTypes.string,
 };

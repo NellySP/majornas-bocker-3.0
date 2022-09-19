@@ -21,21 +21,35 @@ const calendarQuery = `*[_type == 'homePage'][0]{
   pageBuilder[1]{
       sectionTitle,
       internalLinkText,
-      internalLink,
+      internalLink[]->{
+        slug,
+        pageBuilder[1..4]{
+          heading,
+          date,
+          
+        }
+      },
   }
  }`;
 
 const aboutQuery = `*[_type == 'homePage'][0]{
   pageBuilder[2]{
     imageOne,
-    imageTwo
+    imageTwo,
+    internalLink[]->{
+      title,
+      slug
+    }
   }
  }`;
 
 const newsQuery = `*[_type == 'homePage'][0]{
   pageBuilder[3]{
     imageStore,
-    internalLink,
+    internalLink[]->{
+      title,
+      slug
+    },
   }
  }`;
 
@@ -52,16 +66,16 @@ export default function Home({ hero, calendar, aboutImages, newsLink }) {
   // Calendar
   const calendarTitle = calendar.pageBuilder.sectionTitle;
   const calendarLinkText = calendar.pageBuilder.internalLinkText;
-  const calendarLink = calendar.pageBuilder.internalLink;
-  console.log(calendarLink.slug);
+  const calendarLinkUrl = calendar.pageBuilder.internalLink[0];
 
-  // About images
+  // About block
   const imageOne = aboutImages?.pageBuilder.imageOne;
   const imageTwo = aboutImages?.pageBuilder.imageTwo;
-  // console.log(imageOne);
+  const aboutLinkUrl = aboutImages.pageBuilder.internalLink[0];
+  // console.log(aboutLinkUrl);
 
   // News
-  const linkBlock = newsLink.pageBuilder.internalLink;
+  const newsLinkUrl = newsLink.pageBuilder.internalLink[0];
   const shopImage = newsLink?.pageBuilder.imageStore;
 
   return (
@@ -76,10 +90,13 @@ export default function Home({ hero, calendar, aboutImages, newsLink }) {
       <GridSection
         calendarHeading={calendarTitle}
         calendarPageLinkText={calendarLinkText}
-        linkBlockUrl={linkBlock.slug}
-        linkBlockTitle={linkBlock.title}
+        calendarPageUrl={calendarLinkUrl.slug.current}
         aboutImageOne={urlFor(imageOne).url()}
         aboutImageTwo={urlFor(imageTwo).url()}
+        aboutPageLinkText={aboutLinkUrl.title}
+        aboutPageUrl={aboutLinkUrl.slug.current}
+        newsPageLinkText={newsLinkUrl.title}
+        newsPageUrl={newsLinkUrl.slug.current}
         storeImage={urlFor(shopImage).url()}
       />
     </div>
