@@ -9,15 +9,18 @@ import {
   CalendarBox,
   CalendarData,
   LinkBlock,
+  AboutContainer,
+  AboutImageWrapper,
+  AboutLinkBlock,
   StoreImageWrapper,
   StoreImage,
 } from './styles';
-import { urlFor } from '../../../lib/sanity';
 
 export default function GridSection({
   calendarHeading,
   calendarPageLinkText,
-  calendarPageUrl,
+  aboutImageOne,
+  aboutImageTwo,
   storeImage,
 }) {
   const [internalLinks, setInternalLinks] = useState([]);
@@ -25,7 +28,7 @@ export default function GridSection({
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[title in [ "Om oss","Händelser i butiken"]]{
+        `*[title in [ "Kalender", "Om oss", "Händelser i butiken" ]]{
             title,
             slug,
           }`
@@ -34,8 +37,14 @@ export default function GridSection({
       .catch(console.error);
   }, []);
 
-  const newsLink = internalLinks[0];
+  const calenderLinkUrl = internalLinks[0]?.slug.current;
+
+  const newsLink = internalLinks[1];
   const newsLinkUrl = newsLink?.slug.current;
+
+  const aboutLink = internalLinks[2];
+  const aboutLinkUrl = aboutLink?.slug.current;
+
   // console.log(newsLink?.slug.current);
 
   return (
@@ -45,6 +54,16 @@ export default function GridSection({
           <h2>{calendarHeading}</h2>
           <CalendarData>
             <div>
+              <li>
+                <span>Event name:</span> Host
+              </li>
+              <li>Date: Onsdag 5/10</li>
+            </div>
+            <div>
+              <li>Event name: Host</li>
+              <li>Date: Onsdag 5/10</li>
+            </div>
+            <div>
               <li>Event name: Host</li>
               <li>Date: Onsdag 5/10</li>
             </div>
@@ -53,7 +72,10 @@ export default function GridSection({
               <li>Date: Onsdag 5/10</li>
             </div>
           </CalendarData>
-          <a href={calendarPageUrl}>{calendarPageLinkText}</a>
+          {/* <a href={calendarPageUrl}>{calendarPageLinkText}</a> */}
+          <Link href={calenderLinkUrl == undefined ? '#' : calenderLinkUrl}>
+            <a>{calendarPageLinkText}</a>
+          </Link>
         </CalendarBox>
         <LinkBlock>
           <Link href={newsLinkUrl == undefined ? '#' : newsLinkUrl}>
@@ -63,23 +85,22 @@ export default function GridSection({
       </GridColumn>
 
       <GridColumn>
+        <AboutContainer>
+          <AboutImageWrapper>
+            <img className='imageOne' src={aboutImageOne} />
+            <div className='imageTwoWrapper'>
+              <img className='imageTwo' src={aboutImageTwo} />
+            </div>
+          </AboutImageWrapper>
+          <AboutLinkBlock>
+            <Link href={aboutLinkUrl == undefined ? '#' : aboutLinkUrl}>
+              <a>{aboutLink?.title}</a>
+            </Link>
+          </AboutLinkBlock>
+        </AboutContainer>
         <StoreImageWrapper>
           <StoreImage src={storeImage} />
         </StoreImageWrapper>
-        <CalendarBox>
-          <h2>{calendarHeading}</h2>
-          <CalendarData>
-            <div>
-              <li>Event name: Host</li>
-              <li>Date: Onsdag 5/10</li>
-            </div>
-            <div>
-              <li>Event name: Host</li>
-              <li>Date: Onsdag 5/10</li>
-            </div>
-          </CalendarData>
-          <a href={calendarPageUrl}>{calendarPageLinkText}</a>
-        </CalendarBox>
       </GridColumn>
     </GridContainer>
   );
@@ -89,5 +110,9 @@ GridSection.propTypes = {
   calendarHeading: propTypes.string,
   calendarPageLinkText: propTypes.string,
   calendarPageUrl: propTypes.string,
+
+  aboutImageOne: propTypes.string,
+  aboutImageTwo: propTypes.string,
+
   storeImage: propTypes.string,
 };

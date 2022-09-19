@@ -26,6 +26,18 @@ export default function Navigation() {
   // console.log(navItems.nav);
   const links = navItems.nav;
 
+  // const scrollToFooter = (e) => {
+  //   let btn = document.querySelector('.scrollToFooter');
+  //   let footer = document.querySelector('#footer');
+
+  //   btn.addEventListener('click', (e) => {
+  //     e.preventDefault();
+  //     footer.scrollIntoView({
+  //       behavior: 'smooth',
+  //     });
+  //   });
+  // };
+
   return (
     <>
       <Head>
@@ -45,7 +57,9 @@ export default function Navigation() {
               </li>
             ))}
           <li>
-            <a href='#footer'>Kontakta oss</a>
+            <a href='#footer' className='scrollToFooter'>
+              Kontakta oss
+            </a>
           </li>
         </NavLinkWrapper>
       </NavContainer>

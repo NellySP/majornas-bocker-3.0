@@ -64,6 +64,10 @@ body {
   background-color: var(--white);
 }
 
+#footer {
+  scroll-behavior: smooth;
+}
+
 a {
   font-family: var(--azeret-mono);
   text-decoration: none;

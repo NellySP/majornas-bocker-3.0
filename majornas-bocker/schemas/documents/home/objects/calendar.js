@@ -9,10 +9,28 @@ export default {
       type: 'string',
     },
     {
-      name: 'heroDescription',
-      title: 'Fetch calendar data',
-      description: 'Kika på hur vi ska koppla kalender för evenemang',
+      name: 'internalLinkText',
+      title: 'Textlänk till undersidan',
       type: 'string',
+    },
+    {
+      name: 'internalLink',
+      title: 'Länk till undersida',
+      description: 'Välj en sida',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            { type: 'aboutPage' },
+            { type: 'newsPage' },
+            { type: 'calendarPage' },
+          ],
+        },
+      ],
+      validation: (Rule) => [
+        Rule.required().max(1).error('Välj max en undersida'),
+      ],
     },
   ],
 };

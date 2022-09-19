@@ -20,6 +20,8 @@ const heroQuery = `*[_type == 'homePage'][0]{
 const calendarQuery = `*[_type == 'homePage'][0]{
   pageBuilder[1]{
       sectionTitle,
+      internalLinkText,
+      internalLink,
   }
  }`;
 
@@ -49,6 +51,9 @@ export default function Home({ hero, calendar, aboutImages, newsLink }) {
 
   // Calendar
   const calendarTitle = calendar.pageBuilder.sectionTitle;
+  const calendarLinkText = calendar.pageBuilder.internalLinkText;
+  const calendarLink = calendar.pageBuilder.internalLink;
+  console.log(calendarLink.slug);
 
   // About images
   const imageOne = aboutImages?.pageBuilder.imageOne;
@@ -58,7 +63,6 @@ export default function Home({ hero, calendar, aboutImages, newsLink }) {
   // News
   const linkBlock = newsLink.pageBuilder.internalLink;
   const shopImage = newsLink?.pageBuilder.imageStore;
-  console.log(shopImage);
 
   return (
     <div>
@@ -71,14 +75,13 @@ export default function Home({ hero, calendar, aboutImages, newsLink }) {
       />
       <GridSection
         calendarHeading={calendarTitle}
-        calendarPageLinkText={'Se hela kalendern'}
-        calendarPageUrl={'http://localhost:3000/kalender'}
+        calendarPageLinkText={calendarLinkText}
         linkBlockUrl={linkBlock.slug}
         linkBlockTitle={linkBlock.title}
+        aboutImageOne={urlFor(imageOne).url()}
+        aboutImageTwo={urlFor(imageTwo).url()}
         storeImage={urlFor(shopImage).url()}
       />
-      <img src={urlFor(imageOne).url()} />
-      <img src={urlFor(imageTwo).url()} />
     </div>
   );
 }
