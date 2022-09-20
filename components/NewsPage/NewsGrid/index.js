@@ -10,7 +10,7 @@ export default function NewsPosts() {
     useEffect(() => {
         sanityClient
         .fetch(
-            `*[_type == 'newsPage']{
+            `*[_type == 'newsPage'][0]{
                 pageBuilder[]{
                     heading,
                     image,
@@ -23,7 +23,8 @@ export default function NewsPosts() {
         .catch(console.error);
     }, []);
 
-    const newsPosts = grid[0].pageBuilder;
+    const newsPosts = grid.pageBuilder;
+    console.log(newsPosts);
 
     return (
          <NewsWrapper>
