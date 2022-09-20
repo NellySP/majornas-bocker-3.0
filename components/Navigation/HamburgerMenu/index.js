@@ -17,6 +17,11 @@ export default function HamburgerMenu() {
   const [nav, showNav] = useState(false);
   const [menuText, setMenuText] = useState('Meny');
 
+  const toggleMenu = () => {
+    showNav(!nav);
+    setMenuText(!nav ? 'Stäng' : 'Meny');
+  };
+
   useEffect(() => {
     sanityClient
       .fetch(
@@ -39,9 +44,7 @@ export default function HamburgerMenu() {
     <>
       <NavContainer>
         <NavLogo href='/'>{navItems.title}</NavLogo>
-        <MenuTrigger onClick={() => showNav(!nav) && setMenuText('Stäng')}>
-          {menuText}
-        </MenuTrigger>
+        <MenuTrigger onClick={() => toggleMenu()}>{menuText}</MenuTrigger>
       </NavContainer>
       <MenuLinks nav={nav}>
         <ul>
@@ -49,13 +52,13 @@ export default function HamburgerMenu() {
             links.map((link) => (
               <li key={link._id}>
                 <Link href={link.slug.current}>
-                  <a onClick={() => showNav(!nav)}>{link.title}</a>
+                  <a onClick={() => toggleMenu()}>{link.title}</a>
                 </Link>
               </li>
             ))}
           <li>
             <a
-              onClick={() => showNav(!nav)}
+              onClick={() => toggleMenu()}
               href='#footer'
               className='scrollToFooter'
             >

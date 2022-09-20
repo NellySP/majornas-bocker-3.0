@@ -5,13 +5,12 @@ import { device } from '../../../styles/mediaQueries';
 export const NavContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  /* width: 100%; */
+
+  /* width: 90%; */
   margin: 0 auto;
-  position: fixed;
+  position: relative;
   top: 2.625rem;
-  left: 1rem;
-  right: 1rem;
+
   z-index: 2;
 
   @media ${device.tablet} {
@@ -36,19 +35,45 @@ export const NavLogo = styled.a`
 `;
 
 export const MenuTrigger = styled.a`
-  background-color: transparent;
+  position: fixed;
+  top: 2.625rem;
+  right: 1rem;
+  display: inline-block;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: flex-end;
   color: var(--black);
   font-size: var(--small-link-desktop);
   font-style: normal;
   font-weight: 500;
   cursor: pointer;
+  text-align: right;
+
+  @media ${device.tablet} {
+    /* width: 87.5vw; */
+
+    right: 4vw;
+  }
 
   @media ${device.laptopL} {
+    /* width: 80vw; */
     display: none;
   }
 `;
 
 export const MenuLinks = styled.nav`
+  @keyframes opacity {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,13 +82,14 @@ export const MenuLinks = styled.nav`
   height: 100vh;
   width: 401px;
   background-color: var(--gray);
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   z-index: 1;
-  /* transform: translateX(0); */
+  /* opacity: ${({ nav }) => (nav ? '1' : '0.5')}; */
+  animation: opacity 1s;
   transition: transform 300ms;
-  transform: ${({ nav }) => (nav ? 'translateX(0)' : 'translateX(100%) ')};
+  transform: ${({ nav }) => (nav ? 'translateX(0)' : 'translateX(100%)')};
 
   @media ${device.laptopL} {
     display: none;
@@ -87,26 +113,4 @@ export const MenuLinks = styled.nav`
 
 export const MenuImage = styled.img`
   width: 100%;
-`;
-
-export const MobileNavContainer = styled.div`
-  width: 404px;
-  height: 100vh;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  background-color: var(--light-gray);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  @media ${device.laptopL} {
-    display: none;
-  }
 `;

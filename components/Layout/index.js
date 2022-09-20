@@ -7,8 +7,8 @@ import { MainWrapper } from './styles';
 export default function Layout({ children }) {
   return (
     <>
-      <Navigation />
       <MainWrapper>
+        <Navigation />
         {children}
         <Footer />
       </MainWrapper>
