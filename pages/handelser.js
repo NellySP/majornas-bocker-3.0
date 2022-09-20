@@ -10,6 +10,9 @@ import NewsGrid from "../components/NewsPage/NewsGrid";
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 
+const NewsPageWrapper = styled.div`
+width: 100%`;
+
 const newsPageQuery = `*[_type == 'newsPage']{
   pageBuilder
 }`;
@@ -21,7 +24,7 @@ export default function Home({ newsPage }) {
   const noticeText = newsPage[0].pageBuilder[0].noticeText;
 
   return (
-    <div>
+    <NewsPageWrapper>
       <NewsHero
       newsHeading={newsHeading}
       newsText={newsText}
@@ -31,7 +34,7 @@ export default function Home({ newsPage }) {
 
     <NewsGrid></NewsGrid>      
 
-    </div>
+    </NewsPageWrapper>
   );
 }
 

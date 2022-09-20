@@ -24,10 +24,9 @@ export default function NewsPosts() {
     }, []);
 
     const newsPosts = grid.pageBuilder;
-    console.log(newsPosts);
-
+    
     return (
-         <NewsWrapper>
+        <NewsWrapper>
              {newsPosts &&
             newsPosts.slice(1).map((newsPost) => (
                 <SinglePost key={newsPost._id}>
@@ -36,7 +35,7 @@ export default function NewsPosts() {
                     </ImgWrapper>
                     <PostHeading>{newsPost.heading}</PostHeading>
                     <PostDescription>{newsPost.text}</PostDescription>
-                    <PostLink><a href="mailto:{newsPost.link}">Intresseanmälan här!</a>
+                    <PostLink><a href={`mailto:${newsPost.link}`}>Intresseanmälan här!</a>
                         </PostLink>
                 </SinglePost>
             ))}

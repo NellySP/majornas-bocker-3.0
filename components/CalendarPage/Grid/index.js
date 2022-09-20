@@ -9,6 +9,7 @@ import propTypes from 'prop-types';
 import {
   CalendarWrapper,
   ImgWrapper,
+  ImgFrame,
   SinglePost,
   PostHeading,
   PostDescription,
@@ -27,9 +28,11 @@ export default function CalendarPosts() {
         pageBuilder[]{
           image,
           heading, 
-          date,
+          day,
+          month,
           text, 
-          link
+          link,
+          time
         }
       }`
       )
@@ -66,6 +69,7 @@ export default function CalendarPosts() {
             (
               <SinglePost key={calendarPost._id}>
                 <ImgWrapper>
+                <ImgFrame>
                   {calendarPost.image &&
                     (calendarPost.image == null ? (
                       <img src={`${randomPlaceholderImage}`} />
@@ -75,12 +79,19 @@ export default function CalendarPosts() {
                         alt={calendarPost.image.caption}
                       />
                     ))}
+                    </ImgFrame>
+                <PostDate>
+                  <p>{calendarPost.month}</p>
+                  <p>{calendarPost.day}</p>
+                </PostDate>
                 </ImgWrapper>
-                <PostHeading>{calendarPost.heading}</PostHeading>
-                <PostDate>{calendarPost.date}</PostDate>
+                <PostHeading>
+                  <h3>{calendarPost.heading}</h3>
+                  <p>{calendarPost.time}</p>
+                  </PostHeading>
                 <PostDescription>{calendarPost.text}</PostDescription>
                 <PostLink>
-                  <a href='mailto:{calendarPost.link}'>Anmäl dig här!</a>
+                  <a href={`mailto:${calendarPost.link}`}>Anmäl dig här!</a>
                 </PostLink>
               </SinglePost>
             )

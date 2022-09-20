@@ -2,16 +2,15 @@ import styled from "styled-components";
 import { device } from "../../../styles/mediaQueries";
 
 export const NewsWrapper = styled.div `
-display: flex;
-flex-direction:row;
-flex-wrap: wrap;
-justify-content: center;
-gap: 0;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-column-gap: 2vw;
+grid-row-gap: 2vw;
+margin-top: 3.3rem;
 `;
 
 export const ImgWrapper = styled.div `
-width: 570px;
-height: 511px;
+max-width: 100%;
 overflow: hidden;
 `;
 
@@ -27,7 +26,9 @@ object-fit: fill;
 
 
 export const PostHeading = styled.h3`
-
+font-size: var(--h3-desktop);
+font-family: var(--azeret-mono);
+font-weight: 400;
 `;
 
 export const PostDescription = styled.p`
@@ -36,44 +37,28 @@ export const PostDescription = styled.p`
 
 export const PostLink = styled.p`
 
+a {
+    color: black;
+    font-size: var(--small-link-desktop);
+    text-decoration: underline;
+    font-weight: 200;
+}
+
 `; 
 
-const StyledNews = styled.div`
- 
+//const StyledNews = styled.div`
 
-  .news-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* grid-template-rows: repeat(2, 1fr); */
-    grid-column-gap: 2vw;
-    grid-row-gap: 2vw;
-  }
-  .news-grid-item {
-    /* height: 100%; */
-  }
+//   @media screen and (max-width: 670px) {
+//     .hero-container {
+//       flex-direction: column;
+//     }
 
-  .news-grid-item img {
-    width: 100%;
-  }
+//     .news-grid {
+//       grid-template-columns: repeat(1, 1fr);
+//     }
 
-  a {
-    color: black;
-    font-family: "Azeret Mono", monospace;
-    font-size: var(--base-size);
-    text-decoration: underline;
-  }
-
-  @media screen and (max-width: 670px) {
-    .hero-container {
-      flex-direction: column;
-    }
-
-    .news-grid {
-      grid-template-columns: repeat(1, 1fr);
-    }
-
-    h1 {
-      width: 100%;
-    }
-  }
-`;
+//     h1 {
+//       width: 100%;
+//     }
+//   }
+//`;
