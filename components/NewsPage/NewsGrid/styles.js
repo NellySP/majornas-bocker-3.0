@@ -37,3 +37,43 @@ export const PostDescription = styled.p`
 export const PostLink = styled.p`
 
 `; 
+
+const StyledNews = styled.div`
+ 
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-rows: repeat(2, 1fr); */
+    grid-column-gap: 2vw;
+    grid-row-gap: 2vw;
+  }
+  .news-grid-item {
+    /* height: 100%; */
+  }
+
+  .news-grid-item img {
+    width: 100%;
+  }
+
+  a {
+    color: black;
+    font-family: "Azeret Mono", monospace;
+    font-size: var(--base-size);
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 670px) {
+    .hero-container {
+      flex-direction: column;
+    }
+
+    .news-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    h1 {
+      width: 100%;
+    }
+  }
+`;
