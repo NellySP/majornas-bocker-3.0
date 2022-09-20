@@ -82,9 +82,6 @@ export default function Home({ newsPage }) {
                 </div>
               ))}
           </div>
-
-    
-      <footer className={styles.footer}></footer>
     </div>
   );
 }

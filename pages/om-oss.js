@@ -158,8 +158,6 @@ export default function Home({ aboutPage }) {
           </div>
         </StyledAboutUs>
       </main>
-
-      <footer className={styles.footer}></footer>
     </div>
   );
 }

@@ -38,20 +38,6 @@ export default function Home({ calendarPage, calendarPageImage }) {
         />
     
       <Grid></Grid>
-      {/*   {calendarPosts &&
-          calendarPosts.slice(1).map((posts) => (
-            <div key={posts._key}>
-              {posts?.image == undefined ? (
-                <p>NO IMAGE. Här får vi lägga placeholder-bilder</p>
-              ) : (
-                <img src={urlFor(posts?.image).url()} />
-              )}
-              <h2>{posts.heading}</h2>
-              <p>{posts.text}</p>
-            </div>
-          ))} */}
-
-
     </div>
   );
 }
