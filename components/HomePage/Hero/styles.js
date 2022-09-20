@@ -84,7 +84,7 @@ export const HeroImage = styled.img`
   }
 
   @media ${device.laptop} {
-    width: 35vw;
-    /* height: auto; */
+    width: auto;
+    height: 70vh;
   }
 `;
