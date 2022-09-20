@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 import { sanityClient, urlFor } from "../lib/sanity";
 import NewsHero from "../components/NewsPage/NewsHero";
+import NewsGrid from "../components/NewsPage/NewsGrid";
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 
@@ -69,7 +70,9 @@ export default function Home({ newsPage }) {
       noticeText={noticeText} 
       />
 
-          <div className="news-grid">
+    <NewsGrid></NewsGrid>      
+
+          {/* <div className="news-grid">
             {singleNews &&
               singleNews.slice(1).map((news) => (
                 <div className="news-grid-item" key={news._key}>
@@ -81,7 +84,7 @@ export default function Home({ newsPage }) {
                   <a href={news.link}>Intresseanmälan här!</a>
                 </div>
               ))}
-          </div>
+          </div> */}
     </div>
   );
 }

@@ -87,13 +87,5 @@ export default function CalendarPosts() {
           )
         )}
     </CalendarWrapper>
-    /*  <HeroContainer>
-        <HeroContent>
-        <h1>{calendarHeading}</h1>
-        <p>{calendarText}</p>
-        <h2>{attendanceHeading}</h2>
-        <p>{attendanceText}</p> 
-        </HeroContent>
-    </HeroContainer> */
   );
 }
