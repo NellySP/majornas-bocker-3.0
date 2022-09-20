@@ -22,16 +22,34 @@ export default {
       option: {
         hotspot: true,
       },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Alt text till bilden',
+          description: 'Beskriv kortfattat vad bilden innehåller',
+          options: {
+            isHighlighted: true, // <-- make this field easily accessible
+          },
+          validation: (Rule) => [
+            Rule.required()
+              .max(80)
+              .error('Undvik att skriva långa alt-texter. Max 80 tecken.'),
+          ],
+        },
+        {
+          // Editing this field will be hidden behind an "Edit"-button
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
+        },
+      ],
     },
     {
       name: 'eventType',
       title: 'Ange vad det är för typ av event',
       type: 'array',
-      of: [
-        {
-          type: 'string',
-        },
-      ],
+      of: [{ type: 'string' }],
       validation: (Rule) => [
         Rule.required().max(1).error('Välj max en typ av event'),
       ],
@@ -51,14 +69,6 @@ export default {
         Rule.required().error('Vänligen ange vilken tid eventet börjar'),
       ],
     },
-    // {
-    //   name: 'date',
-    //   title: 'Date',
-    //   type: 'datetime',
-    //   option: {
-    //     dateFormat: 'DD-MM-YYYY',
-    //   },
-    // },
     {
       name: 'link',
       title: 'link',
