@@ -55,10 +55,16 @@ export default {
       ],
     },
     {
-      name: 'date',
-      title: 'Ange datum för eventet',
+      name: 'day',
+      title: 'Ange datum för eventet, två siffror',
       type: 'string',
-      placeholder: 'T.ex: Tisdag 11/10',
+      placeholder: 'T.ex: 05',
+    },
+    {
+      name: 'month',
+      title: 'Ange månad för eventet, tre bokstäver',
+      type: 'string',
+      placeholder: 'T.ex: OKT',
     },
     {
       name: 'time',
