@@ -85,6 +85,6 @@ export const HeroImage = styled.img`
 
   @media ${device.laptop} {
     width: auto;
-    height: 70vh;
+    height: 40vw;
   }
 `;

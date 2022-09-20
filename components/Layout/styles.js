@@ -9,9 +9,10 @@ export const MainWrapper = styled.div`
 
   @media ${device.tablet} {
     width: 87.5vw;
+    margin: 0auto;
   }
 
-  @media ${device.laptop} {
+  @media ${device.laptopL} {
     width: 80vw;
   }
 `;

@@ -67,11 +67,13 @@ export const CalendarData = styled.div`
   }
 
   li {
-    list-style: none;
     font-family: var(--azeret-mono);
     font-size: var(--p-footer-mobile);
-    font-weight: 300;
-    margin-bottom: 0.5rem;
+    list-style: none;
+    margin-bottom: 2rem;
+    p {
+      font-weight: 300;
+    }
     span {
       font-weight: 500;
     }

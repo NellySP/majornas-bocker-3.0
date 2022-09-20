@@ -34,7 +34,8 @@ export default function GridSection({
     sanityClient
       .fetch(
         `*[_type == 'calendarPage'][0]{
-          pageBuilder[1..5]{
+          pageBuilder[1..4]{
+            _key,
             heading,
             date,
           }
@@ -58,11 +59,13 @@ export default function GridSection({
               : singlePosts &&
                 singlePosts.map((posts) => (
                   <div>
-                    <li>
-                      <span>Event</span>: {posts.heading}
-                    </li>
-                    <li>
-                      <span>Datum</span>: {posts.date}
+                    <li key={posts._key}>
+                      <p>
+                        <span>Event</span>: {posts.heading}
+                      </p>
+                      <p>
+                        <span>Datum</span>: {posts.date}
+                      </p>
                     </li>
                   </div>
                 ))}

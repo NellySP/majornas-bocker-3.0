@@ -1,11 +1,22 @@
 import styled from 'styled-components';
 // import { GlobalStyle } from '../../styles/globalStyles';
-import { device } from '../../styles/mediaQueries';
+import { device } from '../../../styles/mediaQueries';
 
 export const NavContainer = styled.div`
   padding: 2.625rem 0;
-  display: flex;
   justify-content: space-between;
+  width: 91.46vw;
+  margin: 0 auto;
+  display: none;
+
+  @media ${device.tablet} {
+    width: 87.5vw;
+  }
+
+  @media ${device.laptopL} {
+    width: 80vw;
+    display: flex;
+  }
 `;
 
 export const NavLogo = styled.a`
@@ -15,15 +26,19 @@ export const NavLogo = styled.a`
   text-align: left;
 `;
 
-export const NavLinkWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 2.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+export const NavLinkWrapperDesktop = styled.div`
+  display: none;
+
+  @media ${device.laptopL} {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
   li {
     display: inline-block;
