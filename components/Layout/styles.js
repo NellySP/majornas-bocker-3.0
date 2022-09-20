@@ -5,13 +5,14 @@ export const MainWrapper = styled.div`
   width: 91.46vw;
   position: relative;
   min-height: 100vh;
-  margin: 0 auto;
+  margin: 6rem auto 0 auto;
 
   @media ${device.tablet} {
     width: 87.5vw;
+    margin: 0auto;
   }
 
-  @media ${device.laptop} {
+  @media ${device.laptopL} {
     width: 80vw;
   }
 `;
