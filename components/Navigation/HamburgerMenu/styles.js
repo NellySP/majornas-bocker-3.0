@@ -11,8 +11,6 @@ export const NavContainer = styled.div`
   position: relative;
   top: 2.625rem;
 
-  z-index: 2;
-
   @media ${device.tablet} {
     width: 87.5vw;
     left: 0;
@@ -40,6 +38,7 @@ export const MenuTrigger = styled.a`
   right: 1rem;
   display: inline-block;
   margin: 0 auto;
+  z-index: 2;
 
   display: flex;
   justify-content: flex-end;
@@ -78,6 +77,7 @@ export const MenuLinks = styled.nav`
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  gap: 2rem;
   text-align: center;
   height: 100vh;
   width: 401px;
@@ -86,9 +86,10 @@ export const MenuLinks = styled.nav`
   top: 0;
   right: 0;
   z-index: 1;
-  /* opacity: ${({ nav }) => (nav ? '1' : '0.5')}; */
+  /* transition: opacity 300ms;
+  opacity: ${({ nav }) => (nav ? '1' : '0.8')}; */
   animation: opacity 1s;
-  transition: transform 300ms;
+  transition: transform 300ms ease-in-out;
   transform: ${({ nav }) => (nav ? 'translateX(0)' : 'translateX(100%)')};
 
   @media ${device.laptopL} {
@@ -96,11 +97,15 @@ export const MenuLinks = styled.nav`
   }
 
   ul {
-    padding: 4rem 6rem;
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    justify-content: center;
+    width: 100%;
+    height: 70%;
+    gap: 3rem;
+    padding: 0;
+    margin: 0;
   }
 
   a {
@@ -113,4 +118,6 @@ export const MenuLinks = styled.nav`
 
 export const MenuImage = styled.img`
   width: 100%;
+  height: 30%;
+  object-fit: cover;
 `;

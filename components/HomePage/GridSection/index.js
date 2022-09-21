@@ -45,7 +45,7 @@ export default function GridSection({
       .catch(console.error);
   }, []);
 
-  console.log(calendarPosts.pageBuilder);
+  // console.log(calendarPosts.pageBuilder);
   const singlePosts = calendarPosts.pageBuilder;
 
   return (
@@ -58,16 +58,14 @@ export default function GridSection({
               ? 'No posts'
               : singlePosts &&
                 singlePosts.map((posts) => (
-                  <div>
-                    <li key={posts._key}>
-                      <p>
-                        <span>Event</span>: {posts.heading}
-                      </p>
-                      <p>
-                        <span>Datum</span>: {posts.date}
-                      </p>
-                    </li>
-                  </div>
+                  <li key={posts._key}>
+                    <p>
+                      <span>Event</span>: {posts.heading}
+                    </p>
+                    <p>
+                      <span>Datum</span>: {posts.date}
+                    </p>
+                  </li>
                 ))}
           </CalendarData>
           <Link href={calendarPageUrl == undefined ? '#' : calendarPageUrl}>
