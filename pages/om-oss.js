@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import styled from "styled-components";
+import AboutHero from '../components/AboutPage/AboutHero';
+// import AboutGrid from '../components/AboutPage/AboutGrid';
 
 import { sanityClient, urlFor } from "../lib/sanity";
 
@@ -12,7 +14,7 @@ const aboutPageQuery = `*[_type == 'aboutPage']{
   pageBuilder
 }`;
 
-const StyledAboutUs = styled.div`
+/* const StyledAboutUs = styled.div`
   .hero-container {
     display: flex;
     flex-direction: row;
@@ -98,26 +100,48 @@ const StyledAboutUs = styled.div`
       width: 100%;
     }
   }
-`;
+`; */
+
+
+
 
 export default function Home({ aboutPage }) {
   // Variables for about page
-  const h1 = aboutPage[0].pageBuilder[0].heading;
+  const aboutHeading = aboutPage[0].pageBuilder[0].heading;
   const aboutText = aboutPage[0].pageBuilder[0].heroDescription;
   const aboutImage = aboutPage[0].pageBuilder[0].heroImage;
   const galleryImage1 = aboutPage[0].pageBuilder[1].gallery[0];
   const galleryImage2 = aboutPage[0].pageBuilder[1].gallery[1];
   const galleryImage3 = aboutPage[0].pageBuilder[1].gallery[2];
   const galleryImage4 = aboutPage[0].pageBuilder[1].gallery[3];
-  const openHours = aboutPage[0].pageBuilder[0].openingHours;
-  const openHoursTitle = aboutPage[0].pageBuilder[0].openingHoursTitle;
-  console.log(openHours);
+  const openingHoursText = aboutPage[0].pageBuilder[0].openingHours;
+  const openingHoursTitle = aboutPage[0].pageBuilder[0].openingHoursTitle;
+  console.log(openingHoursText);
 
   return (
+
     <div>
-      {/* <div className={styles.container}> */}
+      <AboutHero 
+      aboutHeading={aboutHeading}
+      aboutText={aboutText}
+      aboutImage={aboutImage}
+      openingHoursTitle={openingHoursTitle}
+      openingHoursText={openingHoursText}
+      />
+      {/* <AboutGrid /> */}
+    </div>
+
+
+   /*  <div>
       <main className={styles.main}>
         <StyledAboutUs>
+        <CalendarHero 
+        aboutHeading={aboutHeading}
+        aboutText={aboutText}
+        openingHours={openingHours}
+        openingHoursBorder={openingHoursBorder}
+        />
+
           <div className="hero-container">
             <div className="hero-section-one">
               <h1>{h1}</h1>
@@ -139,26 +163,29 @@ export default function Home({ aboutPage }) {
               </div>
             </div>
           </div>
-          <hr></hr>
-          <div className="gallery">
-            <div>
-              <img src={urlFor(galleryImage1).url()} />
-            </div>
-            <div className="middle-image-container">
-              <div>
-                <img src={urlFor(galleryImage2).url()} />
-              </div>
-              <div>
-                <img src={urlFor(galleryImage3).url()} />
-              </div>
-            </div>
-            <div>
-              <img src={urlFor(galleryImage4).url()} />
-            </div>
-          </div>
-        </StyledAboutUs>
-      </main>
-    </div>
+ */
+
+
+          // <hr></hr>
+          // <div className="gallery">
+          //   <div>
+          //     <img src={urlFor(galleryImage1).url()} />
+          //   </div>
+          //   <div className="middle-image-container">
+          //     <div>
+          //       <img src={urlFor(galleryImage2).url()} />
+          //     </div>
+          //     <div>
+          //       <img src={urlFor(galleryImage3).url()} />
+          //     </div>
+          //   </div>
+          //   <div>
+          //     <img src={urlFor(galleryImage4).url()} />
+          //   </div>
+          // </div>
+    //     </StyledAboutUs>
+    //   </main>
+    // </div>
   );
 }
 
