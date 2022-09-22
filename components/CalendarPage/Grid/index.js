@@ -20,27 +20,28 @@ import {
 
 export default function CalendarPosts() {
   const [grid, setGrid] = useState([]);
-  const [numberOfPosts, setNumberOfPosts] = useState(7);
+  const [numberOfPosts, setNumberOfPosts] = useState(4);
 
   function handleLoader() {
-    setNumberOfPosts((previousPostNumber) => previousPostNumber + 6); // 6 is the number of posts you want to load per click
+    setNumberOfPosts((previousPostNumber) => previousPostNumber + 4); // 6 is the number of posts you want to load per click
   }
 
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == 'calendarPage'][0]{
-        pageBuilder[]{
-          image,
-          heading, 
-          day,
-          month,
-          text, 
-          link,
-          linkText,
-          time
-        }
-      }`
+        `*[_type == 'calendarPage'][0]
+        {
+          pageBuilder[]{
+            image,
+            heading, 
+            day,
+            month,
+            text, 
+            link,
+            linkText,
+            time
+          }
+        }`
       )
 
       .then((data) => setGrid(data))
@@ -56,24 +57,23 @@ export default function CalendarPosts() {
         {calendarPosts == undefined
           ? ''
           : calendarPosts &&
-            calendarPosts.slice(1, numberOfPosts).map((calendarPost) => (
+            calendarPosts.slice(0, numberOfPosts).map((calendarPost) => (
               // console.log(calendarPost.image),
               <SinglePost key={calendarPost._id}>
                 <ImgWrapper>
-                  <ImgFrame>
-                    {calendarPost.image &&
-                      (calendarPost.image == null ? (
-                        <Image src={`${randomPlaceholderImage}`} />
-                      ) : (
-                        <PostImg
-                          src={urlFor(calendarPost.image).url()}
-                          alt={calendarPost.image.caption}
-                        />
-                      ))}
-                  </ImgFrame>
+                  {calendarPost.image &&
+                    (calendarPost.image == null ? (
+                      <Image src={`${randomPlaceholderImage}`} />
+                    ) : (
+                      <PostImg
+                        src={urlFor(calendarPost.image).url()}
+                        alt={calendarPost.image.caption}
+                      />
+                    ))}
+
                   <PostDate>
-                    <p>{calendarPost.month}</p>
-                    <p>{calendarPost.day}</p>
+                    <p className='month'>{calendarPost.month}</p>
+                    <p className='day'>{calendarPost.day}</p>
                   </PostDate>
                 </ImgWrapper>
                 <PostHeading>

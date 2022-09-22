@@ -29,7 +29,6 @@ import footerItem from './documents/footer/objects/footerItem';
 import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 // Calendar page Imports
-import calendarHero from './documents/calendar/objects/calendarHero';
 import calendarPage from './documents/calendar/calendarPage';
 import calendarPost from './documents/calendar/objects/calendarPost';
 
@@ -58,7 +57,6 @@ export default createSchema({
     gallery,
 
     // Calendar page schemas
-    calendarHero,
     calendarPage,
     calendarPost,
 
