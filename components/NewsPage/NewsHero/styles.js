@@ -5,42 +5,47 @@ export const HeroContainer = styled.div`
   border-bottom: 1px solid var(--black);
   display: flex;
   flex-direction: column;
-  gap:2.5rem;
-  
+  gap: 2.5rem;
 
-@media ${device.tablet} {
-  flex-direction: row;
-}
+  @media ${device.tablet} {
+    flex-direction: row;
+  }
 
-@media ${device.laptop} {
-  padding-top: 1.5rem;
-  flex: 1;
-}`;
+  @media ${device.laptop} {
+    padding-top: 1.5rem;
+    flex: 1;
+  }
+`;
 
-
-export const HeroContent = styled.div` 
+export const HeroContent = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   padding: 3rem 0;
 
-  .newsTitle{
-  display: flex;
-  flex-direction: column;
+  @media ${device.tablet} {
+    flex-direction: row;
   }
 
-  .openingHours{
+  .newsMain {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .openingHours {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    padding-top: 3rem;
   }
 
-  .rsvpBorder{
+  .rsvpBorder {
     border-left: 30px solid var(--green);
-    
-    h2, p{
+
+    h2,
+    p {
       padding-left: 1.5rem;
-      margin:1.5rem;
+      margin: 1.5rem;
     }
   }
 
@@ -48,7 +53,6 @@ export const HeroContent = styled.div`
     font-size: var(--h1-mobile);
     margin-bottom: 1.5rem;
   }
-
 
   @media ${device.tablet} {
     h1 {
@@ -88,4 +92,5 @@ export const HeroContent = styled.div`
       font-style: italic;
       font-weight: 400;
     }
-  }`
+  }
+`;
