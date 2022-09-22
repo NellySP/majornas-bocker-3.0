@@ -81,7 +81,7 @@ export const MenuLinks = styled.nav`
   text-align: center;
   height: 100vh;
   width: 401px;
-  background-color: var(--gray);
+  background-color: var(--light-gray);
   position: fixed;
   top: 0;
   right: 0;
