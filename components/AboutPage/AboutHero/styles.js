@@ -30,9 +30,20 @@ export const HeroContent = styled.div`
   }
 
   .openingHours{
-    display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-left: 7rem;
+
+  img{
+    width: 10rem;
+    height: 10rem;
+    margin-right: 5rem;
+
+  }
+
+
   }
 
   .openingHoursBorder{
