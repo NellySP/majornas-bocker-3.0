@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import { urlFor } from "../../../lib/sanity";
-import { sanityClient } from "../../../lib/sanity";
-// import form1 from '../../../public/images/form-1-green.svg';
-import form2 from "../../../public/images/form-4-orange.svg";
-import propTypes from "prop-types";
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { urlFor } from '../../../lib/sanity';
+import { sanityClient } from '../../../lib/sanity';
 
 import {
   CalendarWrapper,
@@ -16,10 +13,18 @@ import {
   PostDate,
   PostLink,
   PostImg,
-} from "./styles";
+  LoaderContainer,
+  LoaderButton,
+  LoaderText,
+} from './styles';
 
 export default function CalendarPosts() {
   const [grid, setGrid] = useState([]);
+  const [numberOfPosts, setNumberOfPosts] = useState(7);
+
+  function handleLoader() {
+    setNumberOfPosts((previousPostNumber) => previousPostNumber + 6); // 6 is the number of posts you want to load per click
+  }
 
   useEffect(() => {
     sanityClient
@@ -32,6 +37,7 @@ export default function CalendarPosts() {
           month,
           text, 
           link,
+          linkText,
           time
         }
       }`
@@ -42,31 +48,16 @@ export default function CalendarPosts() {
   }, []);
 
   const calendarPosts = grid.pageBuilder;
-
-  const src = "/images/form-";
-  const images = [
-    src + "1-green.svg",
-    src + "2-green.svg",
-    src + "3-green.svg",
-    src + "4-green.svg",
-    src + "1-orange.svg",
-    src + "2-orange.svg",
-    src + "3-orange.svg",
-    src + "4-orange.svg",
-  ];
-
-  const randomPlaceholderImage =
-    images[Math.floor(Math.random() * images.length)];
-
-  console.log(randomPlaceholderImage);
+  console.log(calendarPosts);
 
   return (
-    <CalendarWrapper>
-      {calendarPosts &&
-        calendarPosts.slice(1).map(
-          (calendarPost) => (
-            console.log(calendarPost.image),
-            (
+    <>
+      <CalendarWrapper>
+        {calendarPosts == undefined
+          ? ''
+          : calendarPosts &&
+            calendarPosts.slice(1, numberOfPosts).map((calendarPost) => (
+              // console.log(calendarPost.image),
               <SinglePost key={calendarPost._id}>
                 <ImgWrapper>
                   <ImgFrame>
@@ -91,12 +82,24 @@ export default function CalendarPosts() {
                 </PostHeading>
                 <PostDescription>{calendarPost.text}</PostDescription>
                 <PostLink>
-                  <a href={`mailto:${calendarPost.link}`}>Anmäl dig här!</a>
+                  <a href={`mailto:${calendarPost.link}`}>
+                    {calendarPost.linkText}
+                  </a>
                 </PostLink>
               </SinglePost>
-            )
-          )
+            ))}
+      </CalendarWrapper>
+      <LoaderContainer>
+        {calendarPosts == undefined ? (
+          ''
+        ) : calendarPosts && numberOfPosts < calendarPosts.length ? (
+          <LoaderButton onClick={handleLoader}>
+            Ladda fler evenemang
+          </LoaderButton>
+        ) : (
+          <LoaderText>Alla event laddade</LoaderText>
         )}
-    </CalendarWrapper>
+      </LoaderContainer>
+    </>
   );
 }

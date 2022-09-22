@@ -3,15 +3,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { sanityClient } from '../../../lib/sanity';
 import HamburgerMenu from '../HamburgerMenu';
-import {
-  NavContainer,
-  NavLinkWrapperDesktop,
-  NavLinkWrapperMobile,
-  NavLogo,
-  MenuToggle,
-  MenuImage,
-  MobileNavContainer,
-} from './styles';
+import { NavContainer, NavLinkWrapperDesktop, NavLogo } from './styles';
 
 export default function Navigation() {
   const [navItems, setNavItems] = useState([]);
@@ -60,31 +52,6 @@ export default function Navigation() {
             </a>
           </li>
         </NavLinkWrapperDesktop>
-
-        {/* <MenuToggle open={open} onClick={() => setOpen(!open)} href='#'>
-          Meny
-        </MenuToggle>
-        <MobileNavContainer>
-          <NavLinkWrapperMobile>
-            {links &&
-              links.map((link) => (
-                <li key={link._id}>
-                  <Link href={link.slug.current}>
-                    <a>{link.title}</a>
-                  </Link>
-                </li>
-              ))}
-            <li>
-              <a href='#footer' className='scrollToFooter'>
-                Kontakta oss
-              </a>
-            </li>
-          </NavLinkWrapperMobile>
-          <MenuImage
-            src='/images/form-1-orange.svg'
-            alt='orange graphic image with a circle'
-          />
-        </MobileNavContainer> */}
       </NavContainer>
     </>
   );

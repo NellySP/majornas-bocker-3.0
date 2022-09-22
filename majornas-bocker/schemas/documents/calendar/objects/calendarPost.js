@@ -7,17 +7,28 @@ export default {
   fields: [
     {
       name: 'heading',
-      title: 'Heading',
+      title: 'Titel för eventet',
       type: 'string',
+    },
+    {
+      name: 'eventType',
+      title: 'Ange vad det är för typ av event',
+      description: 'Ange max en typ av event',
+      type: 'array',
+      of: [{ type: 'string' }],
+      validation: (Rule) => [
+        Rule.required().max(1).error('Välj max en typ av event'),
+      ],
     },
     {
       name: 'text',
-      title: 'text',
-      type: 'string',
+      title: 'Beskrivning av eventet',
+      type: 'text',
+      rows: 4,
     },
     {
       name: 'image',
-      title: 'Image',
+      title: 'Lägg till en eventbild',
       type: 'image',
       option: {
         hotspot: true,
@@ -46,15 +57,6 @@ export default {
       ],
     },
     {
-      name: 'eventType',
-      title: 'Ange vad det är för typ av event',
-      type: 'array',
-      of: [{ type: 'string' }],
-      validation: (Rule) => [
-        Rule.required().max(1).error('Välj max en typ av event'),
-      ],
-    },
-    {
       name: 'day',
       title: 'Ange datum för eventet, två siffror',
       type: 'string',
@@ -77,9 +79,15 @@ export default {
     },
     {
       name: 'link',
-      title: 'link',
+      title: 'Länk till föranmälan/intresseanmälan',
       description:
-        'Use this field to add a link to the source. For external links use full url e.g. ‘https://google.com/’. For internal links use the page path e.g. ‘companies’',
+        'Här kan du lägga till antingen en e-postlänk eller en länk till en extern sida.',
+      type: 'string',
+    },
+    {
+      name: 'linkText',
+      title: 'Länktext till föranmälan/intresseanmälan',
+      description: "T.ex. 'Föranmäl dig här!'",
       type: 'string',
     },
   ],
