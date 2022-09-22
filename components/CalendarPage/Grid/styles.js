@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../../../styles/mediaQueries";
+import styled from 'styled-components';
+import { device } from '../../../styles/mediaQueries';
 
 export const CalendarWrapper = styled.div`
   /* mobile first so column? else put below in media etc */
@@ -82,4 +82,33 @@ export const PostLink = styled.p`
     text-decoration: underline;
     font-weight: 200;
   }
+`;
+
+export const LoaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 0;
+`;
+
+export const LoaderButton = styled.a`
+  border: none;
+  cursor: pointer;
+  font-size: var(--p-large-desktop);
+  color: var(--black);
+  text-decoration: underline;
+  font-weight: 500;
+  background-color: transparent;
+
+  &:hover {
+    font-style: italic;
+    font-weight: 500;
+  }
+`;
+
+export const LoaderText = styled.a`
+  font-size: var(--p-large-desktop);
+  color: var(--black);
+  font-weight: 500;
 `;
