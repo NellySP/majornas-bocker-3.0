@@ -100,6 +100,7 @@ export const PostLink = styled.p`
     font-size: var(--small-link-desktop);
     text-decoration: underline;
     font-weight: 200;
+    z-index: 3;
 
     &:hover {
       font-style: italic;
@@ -110,6 +111,7 @@ export const PostLink = styled.p`
 
 export const ImgWrapper = styled.div`
   position: relative;
+  z-index: -1;
   min-width: 343px;
   min-height: 329px;
   width: 100%;
@@ -126,6 +128,7 @@ export const ImgWrapper = styled.div`
 
 export const PostImg = styled.img`
   object-fit: cover;
+  /* z-index: -1; */
   /* min-width: 343px; */
   min-height: 329px;
   width: 100%;
@@ -141,8 +144,6 @@ export const PostImg = styled.img`
 `;
 
 export const PostDate = styled.div`
-  /* max-width: 124px;
-  max-height: 130px; */
   min-width: 80px;
   min-height: 76px;
 
@@ -150,7 +151,6 @@ export const PostDate = styled.div`
   height: 10%;
 
   background-color: rgba(0, 0, 0, 0.2);
-  z-index: 1;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -242,7 +242,7 @@ export const LoaderButton = styled.a`
 export const LoaderText = styled.a`
   font-size: var(--big-link-mobile);
   color: var(--black);
-  font-weight: 500;
+  font-weight: 300;
 
   @media ${device.tablet} {
     font-size: var(--big-link-desktop);

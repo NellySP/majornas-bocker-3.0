@@ -5,6 +5,7 @@ import { device } from '../../../styles/mediaQueries';
 import { useState, useEffect } from 'react';
 import { sanityClient } from '../../../lib/sanity';
 import {
+  Overlay,
   NavContainer,
   MenuTrigger,
   MenuLinks,
@@ -71,30 +72,11 @@ export default function HamburgerMenu() {
           alt='orange graphic image with a circle'
         />
       </MenuLinks>
-      {/* <MenuToggle open={open} onClick={() => setOpen(!open)} href='#'>
-        Meny
-      </MenuToggle>
-      <MobileNavContainer>
-        <NavLinkWrapperMobile>
-          {links &&
-            links.map((link) => (
-              <li key={link._id}>
-                <Link href={link.slug.current}>
-                  <a>{link.title}</a>
-                </Link>
-              </li>
-            ))}
-          <li>
-            <a href='#footer' className='scrollToFooter'>
-              Kontakta oss
-            </a>
-          </li>
-        </NavLinkWrapperMobile>
-        <MenuImage
-          src='/images/form-1-orange.svg'
-          alt='orange graphic image with a circle'
-        />
-      </MobileNavContainer> */}
+      {nav ? (
+        <Overlay onClick={() => toggleMenu()} transparent></Overlay>
+      ) : (
+        <Overlay></Overlay>
+      )}
     </>
   );
 }
