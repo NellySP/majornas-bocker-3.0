@@ -1,4 +1,4 @@
-import { BsPeople } from 'react-icons/io';
+import { BsPeople } from 'react-icons/bs';
 
 export default {
   // Setup a 'document' type to house the page builder field

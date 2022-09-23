@@ -1,4 +1,4 @@
-import { FaBeer } from 'react-icons/fa';
+import { BsInfoCircle } from 'react-icons/bs';
 
 export default {
   // Setup a 'document' type to house the page builder field
@@ -6,7 +6,7 @@ export default {
   name: 'footer',
   title: 'Footer',
   type: 'document',
-  icon: FaBeer,
+  icon: BsInfoCircle,
   fields: [
     {
       name: 'title',
