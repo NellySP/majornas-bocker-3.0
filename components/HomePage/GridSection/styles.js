@@ -23,12 +23,13 @@ export const GridColumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  flex: 1;
 `;
 
 export const CalendarBox = styled.div`
   background-color: var(--light-gray);
   padding: 1.5rem 1rem;
-  height: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -96,15 +97,15 @@ export const LinkBlock = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5rem 4.5rem;
-  height: 50%;
+  padding: 5rem;
+  height: 100%;
 
   a {
     display: block;
     font-size: var(--p-desktop);
     color: var(--black);
     text-decoration: underline;
-    text-align: right;
+    text-align: center;
 
     &:hover {
       font-style: italic;
@@ -157,6 +158,7 @@ export const AboutImageWrapper = styled.div`
   }
 
   .imageTwoWrapper {
+    z-index: -1;
     background: var(--orange);
 
     .imageTwo {
@@ -191,8 +193,8 @@ export const AboutLinkBlock = styled.div`
 `;
 
 export const StoreImageWrapper = styled.div`
-  /* width: 100%; */
-  /* height: 100%; */
+  width: 100%;
+  height: 100%;
   @media ${device.tablet} {
   }
   @media ${device.desktop} {
@@ -202,6 +204,7 @@ export const StoreImageWrapper = styled.div`
 export const StoreImage = styled.img`
   width: 100%;
   height: 100%;
+  object-fit: cover;
   @media ${device.tablet} {
   }
   @media ${device.desktop} {

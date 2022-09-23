@@ -97,7 +97,7 @@ export default function CalendarPosts() {
             Ladda fler evenemang
           </LoaderButton>
         ) : (
-          <LoaderText>Alla event laddade</LoaderText>
+          <LoaderText>Allt är laddat! 👍</LoaderText>
         )}
       </LoaderContainer>
     </>
