@@ -64,7 +64,6 @@ export const MenuTrigger = styled.a`
 
   @media ${device.tablet} {
     /* width: 87.5vw; */
-
     right: 5.5vw;
   }
 
