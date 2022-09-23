@@ -1,7 +1,4 @@
-import Head from 'next/head';
 import Link from 'next/link';
-import styled from 'styled-components';
-import { device } from '../../../styles/mediaQueries';
 import { useState, useEffect } from 'react';
 import { sanityClient } from '../../../lib/sanity';
 import {
