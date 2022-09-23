@@ -39,9 +39,9 @@ export default function Footer() {
                   return (
                   <FooterListItems key={paragraph._id}>
                   <FooterListItem>
-                    <FooterListItemLink href={link.href}>
+                    <a href={link.href}>
                     {paragraph.children[0].text}
-                    </FooterListItemLink>
+                    </a>
                   </FooterListItem>
                   </FooterListItems>
                   )
