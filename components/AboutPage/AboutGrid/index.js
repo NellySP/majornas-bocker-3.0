@@ -12,7 +12,7 @@ export default function AboutGrid({
   return (
     <GridContainer>
       <div className='gallery'>
-        <div classname='firstImage'>
+        <div className='firstImage'>
           <img src={urlFor(galleryImage1).url()} />
         </div>
         <div className='middle-image-container'>
