@@ -24,6 +24,15 @@ export const NewsWrapper = styled.div`
       margin: 0;
     }
   }
+
+  @media ${device.laptop} {
+    grid-column-gap: 4.5rem;
+    grid-row-gap: 5rem;
+    p {
+      font-size: var(--p-large-desktop);
+      margin: 0;
+    }
+  }
 `;
 
 export const SinglePost = styled.div`
@@ -50,7 +59,18 @@ export const PostHeading = styled.h3`
 
 export const ImgWrapper = styled.div`
   overflow: hidden;
+  min-width: 343px;
+  min-height: 329px;
   width: 100%;
+  height: 329px;
+
+  @media ${device.tablet} {
+    height: 191px;
+  }
+
+  @media ${device.laptopL} {
+    height: 511px;
+  }
 `;
 
 export const PostImg = styled.img`
