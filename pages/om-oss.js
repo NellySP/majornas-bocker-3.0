@@ -39,27 +39,6 @@ export default function Home({ aboutPage }) {
         galleryImage4={galleryImage4}
       />
     </div>
-
-    // <hr></hr>
-    // <div className="gallery">
-    //   <div>
-    //     <img src={urlFor(galleryImage1).url()} />
-    //   </div>
-    //   <div className="middle-image-container">
-    //     <div>
-    //       <img src={urlFor(galleryImage2).url()} />
-    //     </div>
-    //     <div>
-    //       <img src={urlFor(galleryImage3).url()} />
-    //     </div>
-    //   </div>
-    //   <div>
-    //     <img src={urlFor(galleryImage4).url()} />
-    //   </div>
-    // </div>
-    //     </StyledAboutUs>
-    //   </main>
-    // </div>
   );
 }
 

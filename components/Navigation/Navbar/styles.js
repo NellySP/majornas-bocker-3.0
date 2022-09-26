@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../../../styles/mediaQueries";
+import styled from 'styled-components';
+import { device } from '../../../styles/mediaQueries';
 
 export const NavContainer = styled.div`
   padding: 2.625rem 0;
@@ -23,6 +23,7 @@ export const NavLogo = styled.a`
   font-weight: 500;
   color: var(--black);
   text-align: left;
+  z-index: 1;
 `;
 
 export const NavLinkWrapperDesktop = styled.div`
