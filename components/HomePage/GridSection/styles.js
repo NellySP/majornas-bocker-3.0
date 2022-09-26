@@ -23,15 +23,21 @@ export const GridColumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  flex: 1;
 `;
 
 export const CalendarBox = styled.div`
   background-color: var(--light-gray);
   padding: 1.5rem 1rem;
-  height: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  h2 {
+    font-size: var(--h2-mobile);
+    margin: 0;
+  }
 
   a {
     display: block;
@@ -48,44 +54,44 @@ export const CalendarBox = styled.div`
 
   @media ${device.tablet} {
     padding: 3rem;
+
+    h2 {
+      font-size: var(--h2-tablet);
+    }
   }
 
-  @media ${device.desktop} {
+  @media ${device.laptop} {
     padding: 4rem;
+
+    h2 {
+      font-size: var(--h2-desktop);
+    }
   }
 `;
 
 export const CalendarData = styled.div`
   padding: 1.5rem 0 2rem 0;
 
-  h2 {
-    font-size: var(--h2-mobile);
-  }
-
-  div {
-    margin-bottom: 2rem;
-  }
-
   li {
     font-family: var(--azeret-mono);
-    font-size: var(--p-footer-mobile);
     list-style: none;
     margin-bottom: 2rem;
-    p {
-      font-weight: 300;
-    }
-    span {
-      font-weight: 500;
-    }
+  }
+
+  p {
+    margin: 0;
+    font-size: var(--p-footer-mobile);
+    font-weight: 300;
+  }
+
+  span {
+    font-weight: 500;
   }
 
   @media ${device.tablet} {
   }
-  @media ${device.desktop} {
-    div {
-      margin-bottom: 2.5rem;
-    }
-    li {
+  @media ${device.laptop} {
+    p {
       font-size: var(--p-large-desktop);
     }
   }
@@ -96,15 +102,15 @@ export const LinkBlock = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5rem 4.5rem;
-  height: 50%;
+  padding: 5rem;
+  height: 100%;
 
   a {
     display: block;
-    font-size: var(--p-desktop);
+    font-size: var(--big-link-mobile);
     color: var(--black);
     text-decoration: underline;
-    text-align: right;
+    text-align: center;
 
     &:hover {
       font-style: italic;
@@ -112,8 +118,12 @@ export const LinkBlock = styled.div`
     }
   }
   @media ${device.tablet} {
+    a {
+      font-size: var(--p-tablet);
+    }
   }
   @media ${device.desktop} {
+    font-size: var(--big-link-desktop);
   }
 `;
 
@@ -157,6 +167,7 @@ export const AboutImageWrapper = styled.div`
   }
 
   .imageTwoWrapper {
+    z-index: -1;
     background: var(--orange);
 
     .imageTwo {
@@ -174,7 +185,7 @@ export const AboutLinkBlock = styled.div`
 
   a {
     display: block;
-    font-size: var(--p-desktop);
+    font-size: var(--big-link-mobile);
     color: var(--black);
     text-decoration: underline;
     text-align: right;
@@ -185,14 +196,17 @@ export const AboutLinkBlock = styled.div`
     }
   }
   @media ${device.tablet} {
+    a {
+      font-size: var(--p-tablet);
+    }
   }
   @media ${device.desktop} {
+    font-size: var(--big-link-desktop);
   }
 `;
 
 export const StoreImageWrapper = styled.div`
-  /* width: 100%; */
-  /* height: 100%; */
+  height: 100%;
   @media ${device.tablet} {
   }
   @media ${device.desktop} {
@@ -202,6 +216,7 @@ export const StoreImageWrapper = styled.div`
 export const StoreImage = styled.img`
   width: 100%;
   height: 100%;
+  object-fit: cover;
   @media ${device.tablet} {
   }
   @media ${device.desktop} {

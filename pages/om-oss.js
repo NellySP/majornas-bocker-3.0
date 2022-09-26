@@ -1,12 +1,7 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-import styled from 'styled-components';
 import AboutHero from '../components/AboutPage/AboutHero';
 import AboutGrid from '../components/AboutPage/AboutGrid';
 
-import { sanityClient, urlFor } from '../lib/sanity';
+import { sanityClient } from '../lib/sanity';
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 
@@ -33,7 +28,7 @@ export default function Home({ aboutPage }) {
         aboutHeading={aboutHeading}
         aboutText={aboutText}
         aboutImage={aboutImage}
-        openingHoursHeading={openingHoursTitle}
+        openingHoursTitle={openingHoursTitle}
         openingHoursText={openingHoursText}
       />
 

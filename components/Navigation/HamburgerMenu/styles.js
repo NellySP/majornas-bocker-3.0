@@ -1,6 +1,17 @@
-import styled from 'styled-components';
-// import { GlobalStyle } from '../../styles/globalStyles';
-import { device } from '../../../styles/mediaQueries';
+import styled from "styled-components";
+import { device } from "../../../styles/mediaQueries";
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s;
+  background-color: ${(nav) =>
+    nav.transparent ? "rgba(0, 0, 0, 0.6)" : "rgba(0, 0, 0, 0)"};
+  visibility: ${(nav) => (nav.transparent ? "visible" : "hidden")};
+`;
 
 export const NavContainer = styled.div`
   display: flex;
@@ -30,6 +41,7 @@ export const NavLogo = styled.a`
   color: var(--black);
   text-align: left;
   width: 40%;
+  z-index: 3;
 `;
 
 export const MenuTrigger = styled.a`
@@ -38,7 +50,7 @@ export const MenuTrigger = styled.a`
   right: 1rem;
   display: inline-block;
   margin: 0 auto;
-  z-index: 2;
+  z-index: 3;
 
   display: flex;
   justify-content: flex-end;
@@ -51,8 +63,7 @@ export const MenuTrigger = styled.a`
 
   @media ${device.tablet} {
     /* width: 87.5vw; */
-
-    right: 4vw;
+    right: 5.5vw;
   }
 
   @media ${device.laptopL} {
@@ -85,12 +96,10 @@ export const MenuLinks = styled.nav`
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 1;
-  /* transition: opacity 300ms;
-  opacity: ${({ nav }) => (nav ? '1' : '0.8')}; */
+  z-index: 2;
   animation: opacity 1s;
-  transition: transform 300ms ease-in-out;
-  transform: ${({ nav }) => (nav ? 'translateX(0)' : 'translateX(100%)')};
+  transition: transform 0.3s ease-in-out;
+  transform: ${({ nav }) => (nav ? "translateX(0)" : "translateX(100%)")};
 
   @media ${device.laptopL} {
     display: none;

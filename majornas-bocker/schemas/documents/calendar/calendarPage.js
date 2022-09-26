@@ -10,12 +10,13 @@ export default {
   fields: [
     {
       name: 'title',
-      title: 'Title',
+      title: 'Titel',
       type: 'string',
     },
     {
       name: 'slug',
-      title: 'Slug',
+      title: 'URL-ändelse',
+      description: 'Ändelse för sidan som syns i webbläsarens adressfält',
       type: 'slug',
       options: {
         source: 'title',
