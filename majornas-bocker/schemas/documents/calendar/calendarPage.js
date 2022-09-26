@@ -16,6 +16,7 @@ export default {
     {
       name: 'slug',
       title: 'URL-ändelse',
+      description: 'Ändelse för sidan som syns i webbläsarens adressfält',
       type: 'slug',
       options: {
         source: 'title',
