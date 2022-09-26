@@ -1,46 +1,93 @@
-import styled from "styled-components";
-import { device } from "../../../styles/mediaQueries";
-
+import styled from 'styled-components';
+import { device } from '../../../styles/mediaQueries';
 
 export const GridContainer = styled.div`
-hr {
-    border-top: 1px solid black;
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-
-  .divider {
-    background-color: #e6dbe7;
-    height: 100%;
-    width: 36px;
-    margin: 5%;
-  }
+  border-top: 1px solid black;
+  width: 100%;
+  padding: 3rem 0 6rem 0;
 
   .gallery {
-    width: 100%;
     display: flex;
     flex-direction: row;
-  }
-  .middle-image-container {
-    display: flex;
-    flex-direction: column;
-  }
+    flex-wrap: wrap;
+    gap: 1rem;
 
-  .gallery img {
-    width: 100%;
-  }
+    div {
+      width: 100%;
 
-  #spinner {
-    animation: image-spinner 8s linear infinite;
-  }
+      .firstImage {
+        width: 100%;
+        height: 343px;
+        background-color: red;
 
-  @keyframes image-spinner {
-    from {
-      transform: rotate(360deg);
+        img {
+          width: 100%;
+          height: 343px;
+          object-fit: cover;
+        }
+      }
     }
-    to {
-      transform: rotate(0deg);
+
+    .thirdImage {
+      margin-top: 1rem;
     }
+
+    .middle-image-container,
+    .fourthImage {
+      width: calc(50% - 0.5rem);
+    }
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media ${device.tablet} {
+    .gallery {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: 1rem;
+
+      .firstImage {
+        width: 100%;
+      }
+
+      .thirdImage {
+        margin-top: 0;
+      }
+
+      div {
+        width: 33%;
+      }
+
+      .middle-image-container,
+      .fourthImage {
+        width: 33%;
+      }
+    }
+
+    .middle-image-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      div {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    /* .gallery img {
+      width: 100%;
+      height: 100%;
+    } */
+  }
+
+  @media ${device.laptop} {
   }
 
   @media screen and (max-width: 670px) {

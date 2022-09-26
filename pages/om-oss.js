@@ -1,7 +1,7 @@
-import AboutHero from "../components/AboutPage/AboutHero";
-import AboutGrid from "../components/AboutPage/AboutGrid";
+import AboutHero from '../components/AboutPage/AboutHero';
+import AboutGrid from '../components/AboutPage/AboutGrid';
 
-import { sanityClient } from "../lib/sanity";
+import { sanityClient } from '../lib/sanity';
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 
@@ -20,7 +20,7 @@ export default function Home({ aboutPage }) {
   const galleryImage4 = aboutPage[0].pageBuilder[1].gallery[3];
   const openingHoursText = aboutPage[0].pageBuilder[0].openingHours;
   const openingHoursTitle = aboutPage[0].pageBuilder[0].openingHoursTitle;
-  console.log(openingHoursText);
+  console.log(openingHoursTitle);
 
   return (
     <div>
