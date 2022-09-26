@@ -1,21 +1,23 @@
 export default {
   name: 'aboutGallery',
-  title: 'About Gallery',
+  title: 'Om oss: bildgalleri',
   type: 'object',
   fields: [
     {
       name: 'title',
-      title: 'Title',
+      title: 'Titel',
+      description: 'Namn på denna sektion av sidan.',
       type: 'string',
     },
     {
       name: 'gallery',
-      title: 'Gallery',
+      title: 'Galleri',
+      description: 'Här läggs bilder som visas på om oss-sidan till.',
       type: 'array',
       of: [
         {
           name: 'image',
-          title: 'Image',
+          title: 'Bild',
           type: 'image',
           option: {
             hotspot: true,
@@ -24,7 +26,7 @@ export default {
             {
               name: 'caption',
               type: 'string',
-              title: 'Alt text till bilden',
+              title: 'Alt-text till bilden',
               description: 'Beskriv kortfattat vad bilden innehåller',
               options: {
                 isHighlighted: true, // <-- make this field easily accessible
