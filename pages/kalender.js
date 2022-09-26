@@ -1,11 +1,7 @@
-import styles from '../styles/Home.module.css';
-import Head from 'next/head';
-import Link from 'next/link';
-import Image from 'next/image';
-import CalendarHero from '../components/CalendarPage/CalendarHero';
-import Grid from '../components/CalendarPage/Grid';
+import CalendarHero from "../components/CalendarPage/CalendarHero";
+import Grid from "../components/CalendarPage/Grid";
 
-import { sanityClient, urlFor } from '../lib/sanity';
+import { sanityClient } from "../lib/sanity";
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 

@@ -1,17 +1,14 @@
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import styled from "styled-components";
 
-import { sanityClient, urlFor } from "../lib/sanity";
+import { sanityClient } from "../lib/sanity";
 import NewsHero from "../components/NewsPage/NewsHero";
 import NewsGrid from "../components/NewsPage/NewsGrid";
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 
 const NewsPageWrapper = styled.div`
-width: 100%`;
+  width: 100%;
+`;
 
 const newsPageQuery = `*[_type == 'newsPage']{
   pageBuilder
@@ -32,8 +29,7 @@ export default function Home({ newsPage }) {
       noticeText={noticeText} 
       />
 
-    <NewsGrid></NewsGrid>      
-
+      <NewsGrid></NewsGrid>
     </NewsPageWrapper>
   );
 } 

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { device } from '../../styles/mediaQueries';
+import styled from "styled-components";
+import { device } from "../../styles/mediaQueries";
 
 export const FooterContainer = styled.footer`
   font-family: var(--azeret-mono);
@@ -15,7 +15,7 @@ export const FooterContainer = styled.footer`
   padding: 2rem 0;
   border-top: 1px solid var(--dark-gray);
   justify-content: center;
-  
+
   @media ${device.tablet} {
     flex-direction: row;
     justify-content: space-between;
@@ -25,20 +25,19 @@ export const FooterContainer = styled.footer`
   @media ${device.laptop} {
     padding-bottom: 4rem;
   }
-  
-  `;
-  
-  export const FooterItem = styled.div`
+`;
+
+export const FooterItem = styled.div`
   width: fit-content;
   margin-top: 3rem;
-  `;
+`;
 
-  export const FooterHeading = styled.h3`
+export const FooterHeading = styled.h3`
   font-size: var(--h3-mobile);
   font-weight: 500;
   letter-spacing: -1px;
   margin-bottom: 2rem;
-  
+
   @media ${device.tablet} {
     font-size: var(--h3-tablet);
   }
@@ -51,20 +50,19 @@ export const FooterList = styled.ul`
   list-style: none;
   padding: 0;
 
-  @media ${device.tablet}  {
+  @media ${device.tablet} {
     font-size: var(--p-footer-tablet);
   }
 
   @media ${device.laptop} {
     font-size: var(--p-desktop);
   }
-  
 `;
 
 export const FooterListItems = styled.div`
   width: 100%;
-  `;
-  
+`;
+
 export const FooterListItem = styled.li`
   margin-top: 0.7rem;
 
