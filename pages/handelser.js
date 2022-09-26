@@ -26,7 +26,7 @@ export default function Home({ newsPage }) {
   return (
     <NewsPageWrapper>
       <NewsHero
-      newsHeading={newsHeading}
+      newsHeading={newsHeading} 
       newsText={newsText}
       noticeHeading={noticeHeading}
       noticeText={noticeText} 
@@ -36,7 +36,7 @@ export default function Home({ newsPage }) {
 
     </NewsPageWrapper>
   );
-}
+} 
 
 export async function getStaticProps() {
   const newsPage = await sanityClient.fetch(newsPageQuery);
