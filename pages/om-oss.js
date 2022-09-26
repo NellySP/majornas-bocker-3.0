@@ -28,7 +28,7 @@ export default function Home({ aboutPage }) {
         aboutHeading={aboutHeading}
         aboutText={aboutText}
         aboutImage={aboutImage}
-        openingHoursTitle={openingHoursTitle}
+        openingHoursHeading={openingHoursTitle}
         openingHoursText={openingHoursText}
       />
 
