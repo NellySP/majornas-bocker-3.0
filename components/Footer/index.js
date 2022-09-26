@@ -44,7 +44,7 @@ export default function Footer() {
                   return (
                     <FooterListItems key={paragraph._id}>
                       <FooterListItem>
-                        <a href={link.href}>{paragraph.children[0].text}</a>
+                        <a href={link.href} target="_blank" rel="noreferrer">{paragraph.children[0].text}</a>
                       </FooterListItem>
                     </FooterListItems>
                   );
