@@ -1,28 +1,30 @@
 export default {
   name: "aboutHero",
-  title: "About Hero",
+  title: "Om oss: information",
   type: "object",
   fields: [
     {
       name: "sectionTitle",
-      title: "Section Title",
+      title: "Titel",
+      description: "Sektionens namn",
       type: "string",
     },
     {
       name: "heading",
-      title: "Heading",
-      description: "H1 goes here",
+      title: "Sidrubrik",
+      description: "Tips: undvik långa rubriker",
       type: "string",
     },
     {
       name: "heroDescription",
-      title: "Hero description",
+      title: "Brödtext till sidan",
+      description: "Texten syns under sidrubriken.",
       type: "text",
       rows: 3,
     },
     {
       name: "heroImage",
-      title: "Hero Image",
+      title: "Bild",
       type: "image",
       option: {
         hotspot: true,
@@ -31,7 +33,7 @@ export default {
         {
           name: 'caption',
           type: 'string',
-          title: 'Alt text till bilden',
+          title: 'Alt-text till bilden',
           description: 'Beskriv kortfattat vad bilden innehåller',
           options: {
             isHighlighted: true, // <-- make this field easily accessible
@@ -52,18 +54,19 @@ export default {
     },
     {
       name: "openingHoursTitle",
-      title: "Opening Hours Title",
-      description: "H2 goes here",
+      title: "Underrubrik",
+      description: "Rubrik för sektionen om öppettider",
       type: "string",
     },
     {
       name: "openingHours",
-      title: "Opening Hours",
+      title: "Öppettider",
+      description:"Ändra eller lägg till öppettiderna här. Klicka i textfälten för att ändra, klicka och dra i punkterna till vänster om textfältet för att ändra i ordningen.",
       type: "array",
       of: [
         {
           name: "day",
-          title: "Day",
+          title: "Dag",
           type: "string",
         },
       ],

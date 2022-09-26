@@ -10,12 +10,12 @@ export default {
   fields: [
     {
       name: 'title',
-      title: 'Title',
+      title: 'Titel',
       type: 'string',
     },
     {
       name: 'slug',
-      title: 'Slug',
+      title: 'URL-ändelse',
       type: 'slug',
       options: {
         source: 'title',

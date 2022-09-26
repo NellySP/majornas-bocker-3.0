@@ -10,12 +10,12 @@ export default {
   fields: [
     {
       name: 'title',
-      title: 'Title',
+      title: 'Titel',
       type: 'string',
     },
     {
       name: 'slug',
-      title: 'Slug',
+      title: 'URL-ändelse',
       type: 'slug',
       options: {
         source: 'title',
@@ -23,17 +23,12 @@ export default {
     },
     {
       name: 'pageBuilder',
-      title: 'Sectioner för om oss-sidan',
+      title: 'Sektioner för om oss-sidan',
+      description: 'Denna sida har två sektioner: generell information och ett galleri av bilder. Redigera dem genom att klicka på dem nedan.',
       type: 'array',
       of: [
-        { type: 'aboutHero' }, // hero.js (same applies for the other types)
+        { type: 'aboutHero' },
         { type: 'aboutGallery' },
-        // { type: 'calendar' },
-        // { type: 'about' },
-        // { type: 'news' },
-        // { type: 'form' },
-        // { type: 'video' },
-        // etc...
       ],
     },
   ],
