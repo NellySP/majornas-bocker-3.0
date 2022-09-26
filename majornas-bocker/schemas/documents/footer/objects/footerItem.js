@@ -40,12 +40,6 @@ export default {
                             relativeOnly: false, // Force only relative links
                             scheme: ["https", "http", "mailto"],})
                       },
-                      {
-                        title: 'Öppna länk i nytt fönster',
-                        name: 'blank',
-                        description: 'Aktivera för att länken ska öppnas i ett nytt fönster',
-                        type: 'boolean'
-                      }
                     ]
                   },
               ]

@@ -20,7 +20,7 @@ export default function Hero({
       <HeroContent>
         <h1>{heading}</h1>
         <p>{description}</p>
-        <a href={linkUrl}>{linkText}</a>
+        <a href={linkUrl} target="_blank" rel="noreferrer">{linkText}</a>
       </HeroContent>   
       <HeroImageWrapper>
         <HeroImage src={urlFor(heroImage).url()} />
