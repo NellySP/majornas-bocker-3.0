@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-// import { GlobalStyle } from '../../styles/globalStyles';
-import { device } from '../../../styles/mediaQueries';
+import styled from "styled-components";
+import { device } from "../../../styles/mediaQueries";
 
 export const Overlay = styled.div`
   position: fixed;
@@ -10,8 +9,8 @@ export const Overlay = styled.div`
   height: 100%;
   transition: all 0.4s;
   background-color: ${(nav) =>
-    nav.transparent ? 'rgba(0, 0, 0, 0.6)' : 'rgba(0, 0, 0, 0)'};
-  visibility: ${(nav) => (nav.transparent ? 'visible' : 'hidden')};
+    nav.transparent ? "rgba(0, 0, 0, 0.6)" : "rgba(0, 0, 0, 0)"};
+  visibility: ${(nav) => (nav.transparent ? "visible" : "hidden")};
 `;
 
 export const NavContainer = styled.div`
@@ -100,7 +99,7 @@ export const MenuLinks = styled.nav`
   z-index: 2;
   animation: opacity 1s;
   transition: transform 0.3s ease-in-out;
-  transform: ${({ nav }) => (nav ? 'translateX(0)' : 'translateX(100%)')};
+  transform: ${({ nav }) => (nav ? "translateX(0)" : "translateX(100%)")};
 
   @media ${device.laptopL} {
     display: none;
