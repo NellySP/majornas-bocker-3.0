@@ -10,8 +10,8 @@ Visit the site [here](https://majornasbocker.vercel.app/)!
 
 Web developers: 
 
-[Nelly]()
-[Nema]()
-[Marcus]()
-[Amanda]()
+[Nelly](https://github.com/NellySP)<br>
+[Amanda](https://github.com/amandaprintz)<br>
+[Marcus](https://github.com/marcusxyz)<br>
+[Nema](https://github.com/patrosk)<br>
 
