@@ -12,36 +12,30 @@ export const GridContainer = styled.div`
     flex-wrap: wrap;
     gap: 1rem;
 
-    div {
+    .firstImage {
       width: 100%;
+      height: 21rem;
+      background-color: red;
 
-      .firstImage {
-        width: 100%;
-        height: 343px;
-        background-color: red;
-
-        img {
-          width: 100%;
-          height: 343px;
-          object-fit: cover;
-        }
+      img {
+        /* height: 100%; */
       }
     }
 
     .thirdImage {
-      margin-top: 1rem;
+      margin-top: 0.75rem;
     }
 
     .middle-image-container,
     .fourthImage {
       width: calc(50% - 0.5rem);
     }
+  }
 
-    img {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-    }
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 
   @media ${device.tablet} {
@@ -53,15 +47,16 @@ export const GridContainer = styled.div`
       gap: 1rem;
 
       .firstImage {
-        width: 100%;
-      }
-
-      .thirdImage {
-        margin-top: 0;
+        width: 33%;
+        height: auto;
       }
 
       div {
         width: 33%;
+      }
+
+      .thirdImage {
+        margin-top: 0;
       }
 
       .middle-image-container,
