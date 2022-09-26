@@ -1,6 +1,6 @@
-import React from "react";
-import propTypes from "prop-types";
-import { HeroContainer, HeroContent } from "./styles";
+import React from 'react';
+import propTypes from 'prop-types';
+import { HeroContainer, HeroContent } from './styles';
 
 export default function NewsHero({
   newsHeading,
@@ -11,14 +11,16 @@ export default function NewsHero({
   return (
     <HeroContainer>
       <HeroContent>
-        <div className="newsMain">
+        <div className='newsMain'>
           <h1>{newsHeading}</h1>
           <p>{newsText}</p>
         </div>
-        <div className="openingHours">
-          <div className="rsvpBorder">
-            <h2>{noticeHeading}</h2>
-            <p>{noticeText}</p>
+        <div className='openingHours'>
+          <div className='rsvpBorder'>
+            <div>
+              <h2>{noticeHeading}</h2>
+              <p>{noticeText}</p>
+            </div>
           </div>
         </div>
       </HeroContent>
