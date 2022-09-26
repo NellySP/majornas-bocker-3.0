@@ -42,7 +42,6 @@ export const NavLogo = styled.a`
   color: var(--black);
   text-align: left;
   width: 40%;
-  z-index: 3;
 `;
 
 export const MenuTrigger = styled.a`
