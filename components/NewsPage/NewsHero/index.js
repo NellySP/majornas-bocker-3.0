@@ -1,5 +1,4 @@
 import React from "react";
-import { urlFor } from "../../../lib/sanity";
 import propTypes from "prop-types";
 import { HeroContainer, HeroContent } from "./styles";
 

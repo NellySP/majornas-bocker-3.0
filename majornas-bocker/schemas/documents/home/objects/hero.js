@@ -1,40 +1,43 @@
 export default {
   name: 'hero',
-  title: 'Hero',
+  title: 'Startsida: Information',
   type: 'object',
   fields: [
     {
       name: 'sectionTitle',
-      title: 'Section Title',
+      title: 'Title',
+      description: 'Namn på sidan som redigeras.',
       type: 'string',
     },
     {
       name: 'heading',
       title: 'Heading',
-      description: 'H1 goes here',
+      description: 'Namn på hemsidan.',
       type: 'string',
     },
     {
       name: 'heroDescription',
       title: 'Hero description',
+      description: 'Kort beskrivning under hemsidans namn som förklarar företaget.',
       type: 'text',
       rows: 3,
     },
     {
       name: 'mainLink',
-      title: 'Main link text',
-      description: 'Instagram link goes here',
+      title: 'Social link text',
+      description: 'Text för att följa sociala medier.',
       type: 'string',
     },
     {
       name: 'url',
       title: 'URL',
-      description: 'URL for main link',
+      description: 'Länk till instagram-konto.',
       type: 'url',
     },
     {
       name: 'heroImage',
-      title: 'Hero Image',
+      title: 'Huvudbild',
+      description: 'Här väljs omslagsbilden som syns överst på startsidan.',
       type: 'image',
       option: {
         hotspot: true,

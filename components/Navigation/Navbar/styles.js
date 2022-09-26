@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-// import { GlobalStyle } from '../../styles/globalStyles';
-import { device } from '../../../styles/mediaQueries';
+import styled from "styled-components";
+import { device } from "../../../styles/mediaQueries";
 
 export const NavContainer = styled.div`
   padding: 2.625rem 0;

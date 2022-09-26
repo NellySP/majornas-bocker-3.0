@@ -4,7 +4,7 @@ export default {
   // Setup a 'document' type to house the page builder field
 
   name: 'homePage',
-  title: 'Hem',
+  title: 'Startsida',
   type: 'document',
   icon: GrHome,
   fields: [
@@ -16,6 +16,7 @@ export default {
     {
       name: 'slug',
       title: 'Slug',
+      description: 'Ska lämnas så här. Här är ingen ändelse i webbläsaren eftersom detta är startsidan.',
       type: 'slug',
       options: {
         source: 'title',
@@ -23,7 +24,8 @@ export default {
     },
     {
       name: 'pageBuilder',
-      title: 'Sectioner för startsidan',
+      title: 'Sektioner på startsidan',
+      description: 'Nedan syns alla sektioner/undersidor som visas på startsidan.',
       type: 'array',
       of: [
         { type: 'hero' }, // hero.js (same applies for the other types)
