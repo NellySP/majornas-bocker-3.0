@@ -1,4 +1,4 @@
-# Majornas böcker X Yrgo
+# Majornas böcker x Yrgo
 
 <img src="https://media.giphy.com/media/9gA3QdIedBzrzBHlT0/giphy.gif">
 
