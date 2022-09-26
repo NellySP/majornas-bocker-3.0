@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../../../styles/mediaQueries";
+import styled from 'styled-components';
+import { device } from '../../../styles/mediaQueries';
 
 export const CalendarWrapper = styled.div`
   /* mobile first */
@@ -62,13 +62,10 @@ export const PostHeading = styled.div`
 
     h3 {
       font-size: var(--h3-tablet);
-      font-weight: 500;
-      margin: 0;
     }
 
     p {
       font-size: var(--p-footer-mobile);
-      font-weight: 300;
       margin: 0;
     }
   }
@@ -78,13 +75,10 @@ export const PostHeading = styled.div`
 
     h3 {
       font-size: var(--h3-desktop);
-      font-weight: 500;
-      margin: 0;
     }
 
     p {
       font-size: var(--p-large-desktop);
-      font-weight: 300;
     }
   }
 `;
@@ -99,7 +93,6 @@ export const PostLink = styled.p`
     font-size: var(--small-link-desktop);
     text-decoration: underline;
     font-weight: 200;
-    z-index: 3;
 
     &:hover {
       font-style: italic;
