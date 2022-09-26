@@ -53,7 +53,7 @@
 html {
   margin: 0;
   padding: 0;
-  /* scroll-behavior: smooth; */
+  scroll-behavior: smooth;
   /* overflow-x: hidden; */
 }
 
@@ -65,9 +65,9 @@ body {
   background-color: var(--white);
 }
 
-#footer {
+/* #footer {
   scroll-behavior: smooth;
-}
+} */
 
 a {
   font-family: var(--azeret-mono);
