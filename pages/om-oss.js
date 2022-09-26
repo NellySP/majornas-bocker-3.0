@@ -1,20 +1,13 @@
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import styled from "styled-components";
 import AboutHero from '../components/AboutPage/AboutHero';
 import AboutGrid from '../components/AboutPage/AboutGrid';
 
-import { sanityClient, urlFor } from "../lib/sanity";
+import { sanityClient } from '../lib/sanity';
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 
 const aboutPageQuery = `*[_type == 'aboutPage']{
   pageBuilder
 }`;
-
-
 
 export default function Home({ aboutPage }) {
   // Variables for about page
@@ -27,49 +20,25 @@ export default function Home({ aboutPage }) {
   const galleryImage4 = aboutPage[0].pageBuilder[1].gallery[3];
   const openingHoursText = aboutPage[0].pageBuilder[0].openingHours;
   const openingHoursTitle = aboutPage[0].pageBuilder[0].openingHoursTitle;
-  console.log(openingHoursText);
+  console.log(openingHoursTitle);
 
   return (
-
     <div>
-      <AboutHero 
-      aboutHeading={aboutHeading}
-      aboutText={aboutText}
-      aboutImage={aboutImage}
-      openingHoursTitle={openingHoursTitle}
-      openingHoursText={openingHoursText}
+      <AboutHero
+        aboutHeading={aboutHeading}
+        aboutText={aboutText}
+        aboutImage={aboutImage}
+        openingHoursTitle={openingHoursTitle}
+        openingHoursText={openingHoursText}
       />
-       
+
       <AboutGrid
         galleryImage1={galleryImage1}
         galleryImage2={galleryImage2}
         galleryImage3={galleryImage3}
         galleryImage4={galleryImage4}
-       /> 
-      
+      />
     </div>
-
-
-          // <hr></hr>
-          // <div className="gallery">
-          //   <div>
-          //     <img src={urlFor(galleryImage1).url()} />
-          //   </div>
-          //   <div className="middle-image-container">
-          //     <div>
-          //       <img src={urlFor(galleryImage2).url()} />
-          //     </div>
-          //     <div>
-          //       <img src={urlFor(galleryImage3).url()} />
-          //     </div>
-          //   </div>
-          //   <div>
-          //     <img src={urlFor(galleryImage4).url()} />
-          //   </div>
-          // </div>
-    //     </StyledAboutUs>
-    //   </main>
-    // </div>
   );
 }
 

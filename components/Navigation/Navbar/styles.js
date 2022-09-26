@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { GlobalStyle } from '../../styles/globalStyles';
 import { device } from '../../../styles/mediaQueries';
 
 export const NavContainer = styled.div`
@@ -24,6 +23,7 @@ export const NavLogo = styled.a`
   font-weight: 500;
   color: var(--black);
   text-align: left;
+  z-index: 1;
 `;
 
 export const NavLinkWrapperDesktop = styled.div`

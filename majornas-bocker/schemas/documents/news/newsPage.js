@@ -16,6 +16,7 @@ export default {
     {
       name: 'slug',
       title: 'Slug',
+      description: 'Ändelse för hur sidan ses i browsern.',
       type: 'slug',
       options: {
         source: 'title',
@@ -23,7 +24,8 @@ export default {
     },
     {
       name: 'pageBuilder',
-      title: 'Sectioner för nyhets-sidan',
+      title: 'Sektioner på undersidan',
+      description: 'Nedan syns kommande händelser. Klicka på "Add item" för att skapa en ny händese. För att ta bort händelse klicka på de tre prickarna till höger om valt block.',
       type: 'array',
       of: [
         { type: 'newsHero' }, // hero.js (same applies for the other types)

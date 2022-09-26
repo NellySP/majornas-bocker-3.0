@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import { device } from '../../../styles/mediaQueries';
+import styled from "styled-components";
+import { device } from "../../../styles/mediaQueries";
 
 export const CalendarWrapper = styled.div`
-  /* mobile first so column? else put below in media etc */
+  /* mobile first */
   display: flex;
   flex-direction: column;
   gap: 5.5rem;
@@ -57,7 +57,6 @@ export const PostHeading = styled.div`
     font-weight: 300;
   }
 
-  /* switch to grid in tablet */
   @media ${device.tablet} {
     padding: 1.5rem 0 1rem 0;
 

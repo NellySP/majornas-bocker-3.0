@@ -1,24 +1,25 @@
 export default {
     name: 'footerItem',
-    title: 'Footer Item',
+    title: 'Sidfot-sektion',
     type: 'object',
     fields: [
       {
         name: 'sectionTitle',
-        title: 'Section Title',
+        title: 'Titel',
         type: 'string',
       },
       {
         name: 'heading',
-        title: 'Heading',
-        description: 'H4 goes here',
+        title: 'Rubrik',
+        description: 'Rubriken för sektionen',
         type: 'string',
       },
 
       {
         name: 'portableText',
         type: 'array',
-        title: 'Content',
+        title: 'Textinnehåll',
+        description: 'Texten syns under sektionens rubrik. Möjligt att lägga till länkar som öppnas i nya fönster vid klick.',
         of: [
           {
             type: 'block',
@@ -27,7 +28,7 @@ export default {
                 {
                     name: 'link',
                     type: 'object',
-                    title: 'External link',
+                    title: 'Länk',
                     fields: [
                       {
                         name: 'href',
@@ -39,12 +40,6 @@ export default {
                             relativeOnly: false, // Force only relative links
                             scheme: ["https", "http", "mailto"],})
                       },
-                      {
-                        title: 'Open in new tab',
-                        name: 'blank',
-                        description: 'Read https://css-tricks.com/use-target_blank/',
-                        type: 'boolean'
-                      }
                     ]
                   },
               ]
