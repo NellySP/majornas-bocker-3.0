@@ -1,8 +1,8 @@
-import React from 'react';
-import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { sanityClient } from '../../../lib/sanity';
-import propTypes from 'prop-types';
+import React from "react";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { sanityClient } from "../../../lib/sanity";
+import propTypes from "prop-types";
 import {
   GridContainer,
   GridColumn,
@@ -14,7 +14,7 @@ import {
   AboutLinkBlock,
   StoreImageWrapper,
   StoreImage,
-} from './styles';
+} from "./styles";
 
 export default function GridSection({
   calendarHeading,
@@ -45,7 +45,6 @@ export default function GridSection({
       .catch(console.error);
   }, []);
 
-  // console.log(calendarPosts.pageBuilder);
   const singlePosts = calendarPosts.pageBuilder;
 
   return (
@@ -55,7 +54,7 @@ export default function GridSection({
           <h2>{calendarHeading}</h2>
           <CalendarData>
             {singlePosts == undefined
-              ? 'No posts'
+              ? "No posts"
               : singlePosts &&
                 singlePosts.map((posts) => (
                   <li key={posts._key}>
@@ -68,12 +67,12 @@ export default function GridSection({
                   </li>
                 ))}
           </CalendarData>
-          <Link href={calendarPageUrl == undefined ? '#' : calendarPageUrl}>
+          <Link href={calendarPageUrl == undefined ? "#" : calendarPageUrl}>
             <a>{calendarPageLinkText}</a>
           </Link>
         </CalendarBox>
         <LinkBlock>
-          <Link href={newsPageUrl == undefined ? '#' : newsPageUrl}>
+          <Link href={newsPageUrl == undefined ? "#" : newsPageUrl}>
             <a>{newsPageLinkText}</a>
           </Link>
         </LinkBlock>
@@ -82,13 +81,13 @@ export default function GridSection({
       <GridColumn>
         <AboutContainer>
           <AboutImageWrapper>
-            <img className='imageOne' src={aboutImageOne} />
-            <div className='imageTwoWrapper'>
-              <img className='imageTwo' src={aboutImageTwo} />
+            <img className="imageOne" src={aboutImageOne} />
+            <div className="imageTwoWrapper">
+              <img className="imageTwo" src={aboutImageTwo} />
             </div>
           </AboutImageWrapper>
           <AboutLinkBlock>
-            <Link href={aboutPageUrl == undefined ? '#' : aboutPageUrl}>
+            <Link href={aboutPageUrl == undefined ? "#" : aboutPageUrl}>
               <a>{aboutPageLinkText}</a>
             </Link>
           </AboutLinkBlock>
