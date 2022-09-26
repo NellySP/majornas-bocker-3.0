@@ -1,6 +1,6 @@
-import React from 'react';
-import propTypes from 'prop-types';
-import { HeroContainer, HeroContent } from './styles';
+import React from "react";
+import propTypes from "prop-types";
+import { HeroContainer, HeroContent } from "./styles";
 
 export default function CalendarHero({
   calendarHeading,
@@ -11,12 +11,12 @@ export default function CalendarHero({
   return (
     <HeroContainer>
       <HeroContent>
-        <div class='calendarTitle'>
+        <div className="calendarTitle">
           <h1>{calendarHeading}</h1>
           <p>{calendarText}</p>
         </div>
-        <div class='calendarRsvp'>
-          <div class='rsvpBorder'>
+        <div className="calendarRsvp">
+          <div className="rsvpBorder">
             <div>
               <h2>{attendanceHeading}</h2>
               <p>{attendanceText}</p>
