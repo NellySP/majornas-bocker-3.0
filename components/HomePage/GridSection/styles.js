@@ -1,20 +1,21 @@
 import styled from 'styled-components';
 import { device } from '../../../styles/mediaQueries';
-
 export const GridContainer = styled.div`
   width: 100%;
   height: max-content;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 3rem 0;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 
   @media ${device.tablet} {
     flex-direction: row;
+    padding-bottom: 7.5rem;
   }
 
-  @media ${device.desktop} {
-    flex-direction: column;
+  @media ${device.laptop} {
+    padding-bottom: 11.25rem;
   }
 `;
 
@@ -48,7 +49,6 @@ export const CalendarBox = styled.div`
 
     &:hover {
       font-style: italic;
-      font-weight: 400;
     }
   }
 
@@ -113,7 +113,7 @@ export const LinkBlock = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5rem;
+  padding: 6rem 2rem;
   height: 100%;
 
   a {
@@ -125,7 +125,6 @@ export const LinkBlock = styled.div`
 
     &:hover {
       font-style: italic;
-      font-weight: 400;
     }
   }
   @media ${device.tablet} {
@@ -203,7 +202,6 @@ export const AboutLinkBlock = styled.div`
 
     &:hover {
       font-style: italic;
-      font-weight: 400;
     }
   }
   @media ${device.tablet} {
