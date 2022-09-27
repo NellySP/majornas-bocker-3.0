@@ -1,7 +1,7 @@
-import Hero from "../components/HomePage/Hero";
-import GridSection from "../components/HomePage/GridSection";
+import Hero from '../components/HomePage/Hero';
+import GridSection from '../components/HomePage/GridSection';
 
-import { sanityClient, urlFor } from "../lib/sanity";
+import { sanityClient, urlFor } from '../lib/sanity';
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 

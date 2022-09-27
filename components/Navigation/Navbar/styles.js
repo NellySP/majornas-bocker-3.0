@@ -45,13 +45,16 @@ export const NavLinkWrapperDesktop = styled.div`
 
     a {
       color: var(--dark-gray);
-      font-size: var(--small-link-desktop);
+      font-size: var(--h4-tablet);
       font-style: normal;
       font-weight: 500;
 
       &:hover,
       :focus {
         color: var(--black);
+      }
+
+      :focus {
         text-decoration: underline;
       }
     }

@@ -4,7 +4,7 @@
 
 :root {
   /*--- Colors ---*/
-  --orange: #e4612a;
+  --orange: #ff6600;
   --green: #b1d2c3;
   --purple: #e6dbe7;
 
@@ -53,8 +53,6 @@
 html {
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
-  /* overflow-x: hidden; */
 }
 
 body {
@@ -63,6 +61,10 @@ body {
   font-size: var(--p);
   color: var(--black);
   background-color: var(--white);
+}
+
+#footer {
+  scroll-behavior: smooth;
 }
 
 a {
