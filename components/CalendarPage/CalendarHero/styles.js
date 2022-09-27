@@ -52,7 +52,6 @@ export const HeroContent = styled.div`
       padding: 3rem 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
     }
 
     h2 {
@@ -60,6 +59,14 @@ export const HeroContent = styled.div`
       letter-spacing: normal;
       margin: 0;
     }
+  }
+
+  .attendanceTextLink a {
+    font-family: var(--cormorant-garamond);
+    font-size: var(--h3-mobile);
+  }
+  .attendanceText {
+    padding-top: 1rem;
   }
 
   @media ${device.tablet} {

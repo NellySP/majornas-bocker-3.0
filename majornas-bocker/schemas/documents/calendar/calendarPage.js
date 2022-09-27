@@ -49,8 +49,34 @@ export default {
         {
           name: 'attendanceText',
           title: 'Brödtext till textrutan',
-          type: 'text',
-          rows: 3,
+          type: 'array',
+          description: 'Texten syns under textrutans rubrik. Möjligt att lägga till länkar.',
+          of: [
+            {
+              type: 'block',
+              marks: {
+                annotations: [
+                  {
+                      name: 'link',
+                      type: 'object',
+                      title: 'Länk',
+                      fields: [
+                        {
+                          name: 'href',
+                          type: 'url',
+                          title: 'URL',
+                          validation: (Rule) =>
+                              Rule.required().uri({
+                              allowRelative: true, // Allow relative links
+                              relativeOnly: false, // Force only relative links
+                              scheme: ["https", "http", "mailto"],})
+                        },
+                      ]
+                    },
+                ]
+              },
+            }
+          ]
         },
       ],
     },

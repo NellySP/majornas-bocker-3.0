@@ -19,7 +19,7 @@ export default {
         name: 'portableText',
         type: 'array',
         title: 'Textinnehåll',
-        description: 'Texten syns under sektionens rubrik. Möjligt att lägga till länkar som öppnas i nya fönster vid klick.',
+        description: 'Texten syns under sektionens rubrik. Möjligt att lägga till länkar.',
         of: [
           {
             type: 'block',

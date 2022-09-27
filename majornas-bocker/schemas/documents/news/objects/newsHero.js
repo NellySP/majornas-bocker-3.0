@@ -32,8 +32,33 @@ export default {
       name: "noticeText",
       title: "Instruktioner för intresseanmälan",
       description: "Kontaktuppgifter eller mail för intresseanmälan.",
-      type: "text",
-      rows: 3,
+      type: "array",
+      of: [
+        {
+          type: 'block',
+          marks: {
+            annotations: [
+              {
+                  name: 'link',
+                  type: 'object',
+                  title: 'Länk',
+                  fields: [
+                    {
+                      name: 'href',
+                      type: 'url',
+                      title: 'URL',
+                      validation: (Rule) =>
+                          Rule.required().uri({
+                          allowRelative: true, // Allow relative links
+                          relativeOnly: false, // Force only relative links
+                          scheme: ["https", "http", "mailto"],})
+                    },
+                  ]
+                },
+            ]
+          },
+        }
+      ]
     },
   ],
 };

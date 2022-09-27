@@ -8,6 +8,7 @@ export default function CalendarHero({
   attendanceHeading,
   attendanceText,
 }) {
+
   return (
     <HeroContainer>
       <HeroContent>
@@ -19,7 +20,26 @@ export default function CalendarHero({
           <div className='rsvpBorder'>
             <div>
               <h2>{attendanceHeading}</h2>
-              <p>{attendanceText}</p>
+              {attendanceText.map((paragraph) => {
+                const link = paragraph.markDefs[0];
+
+                if (link) {
+                  return (
+                    <p className="attendanceTextLink" key={paragraph._id}>
+                      <a href={link.href} target="_blank" rel="noreferrer">
+                      {paragraph.children[0].text}
+                      </a>
+                    </p>
+                  )
+                }
+                else {
+                  return (
+                    <p className="attendanceText" key={paragraph._id}>
+                      {paragraph.children[0].text}
+                    </p>
+                  )
+                }
+              })}
             </div>
           </div>
         </div>
