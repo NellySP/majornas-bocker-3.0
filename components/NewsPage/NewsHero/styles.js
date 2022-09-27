@@ -56,7 +56,6 @@ export const HeroContent = styled.div`
       padding: 3rem 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
     }
 
     h2,
@@ -65,6 +64,14 @@ export const HeroContent = styled.div`
       letter-spacing: normal;
       margin: 0;
     }
+  }
+
+  .noticeText {
+    padding-top: 1rem;
+  }
+  .noticeTextLink a {
+    font-family: var(--cormorant-garamond);
+    font-size: var(--h2-mobile);
   }
 
   @media ${device.tablet} {
@@ -118,7 +125,8 @@ export const HeroContent = styled.div`
         div {
           padding: 2.5rem;
 
-          p {
+          p,
+          .noticeTextLink a {
             font-size: var(--p-large-desktop);
           }
         }

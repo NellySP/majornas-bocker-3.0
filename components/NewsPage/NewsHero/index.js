@@ -19,7 +19,27 @@ export default function NewsHero({
           <div className='rsvpBorder'>
             <div>
               <h2>{noticeHeading}</h2>
-              <p>{noticeText}</p>
+              {noticeText.map((paragraph) => {
+                const link = paragraph.markDefs[0];
+                console.log(paragraph);
+
+                if (link) {
+                  return (
+                    <p className="noticeTextLink" key={paragraph._id}>
+                      <a href={link.href} target="_blank" rel="noreferrer">
+                      {paragraph.children[0].text}
+                      </a>
+                    </p>
+                  )
+                }
+                else {
+                  return (
+                    <p className="noticeText" key={paragraph._id}>
+                      {paragraph.children[0].text}
+                    </p>
+                  )
+                }
+              })}
             </div>
           </div>
         </div>
