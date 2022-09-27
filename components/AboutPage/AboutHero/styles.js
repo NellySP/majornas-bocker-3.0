@@ -74,6 +74,10 @@ export const HeroContent = styled.div`
           display: initial;
         }
       }
+
+      @media ${device.laptop} {
+        justify-content: center;
+      }
     }
   }
 

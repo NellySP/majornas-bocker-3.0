@@ -75,7 +75,7 @@ export const CalendarData = styled.div`
   li {
     font-family: var(--azeret-mono);
     list-style: none;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
   }
 
   p {
@@ -88,9 +88,20 @@ export const CalendarData = styled.div`
     font-weight: 500;
   }
 
+  .date {
+    margin-top: 1rem;
+  }
+
   @media ${device.tablet} {
+    li {
+      margin: 1.5rem 0;
+    }
   }
   @media ${device.laptop} {
+    li {
+      margin: 2.5rem 0;
+    }
+
     p {
       font-size: var(--p-large-desktop);
     }

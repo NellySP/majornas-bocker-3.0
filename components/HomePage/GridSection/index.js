@@ -1,8 +1,8 @@
-import React from "react";
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import { sanityClient } from "../../../lib/sanity";
-import propTypes from "prop-types";
+import React from 'react';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { sanityClient } from '../../../lib/sanity';
+import propTypes from 'prop-types';
 import {
   GridContainer,
   GridColumn,
@@ -14,7 +14,7 @@ import {
   AboutLinkBlock,
   StoreImageWrapper,
   StoreImage,
-} from "./styles";
+} from './styles';
 
 export default function GridSection({
   calendarHeading,
@@ -34,10 +34,12 @@ export default function GridSection({
     sanityClient
       .fetch(
         `*[_type == 'calendarPage'][0]{
-          pageBuilder[1..4]{
+          pageBuilder[0..4]{
             _key,
             heading,
-            date,
+            eventType,
+            day,
+            month,
           }
          }`
       )
@@ -54,25 +56,31 @@ export default function GridSection({
           <h2>{calendarHeading}</h2>
           <CalendarData>
             {singlePosts == undefined
-              ? "No posts"
+              ? 'No posts'
               : singlePosts &&
                 singlePosts.map((posts) => (
                   <li key={posts._key}>
-                    <p>
-                      <span>Event</span>: {posts.heading}
-                    </p>
-                    <p>
-                      <span>Datum</span>: {posts.date}
+                    {singlePosts.eventType == '' ? (
+                      <p>
+                        <span>Event</span>: {posts.heading}
+                      </p>
+                    ) : (
+                      <p>
+                        <span>{posts.eventType}</span>: {posts.heading}
+                      </p>
+                    )}
+                    <p className='date'>
+                      <span>Datum</span>: {posts.day}/{posts.month}
                     </p>
                   </li>
                 ))}
           </CalendarData>
-          <Link href={calendarPageUrl == undefined ? "#" : calendarPageUrl}>
+          <Link href={calendarPageUrl == undefined ? '#' : calendarPageUrl}>
             <a>{calendarPageLinkText}</a>
           </Link>
         </CalendarBox>
         <LinkBlock>
-          <Link href={newsPageUrl == undefined ? "#" : newsPageUrl}>
+          <Link href={newsPageUrl == undefined ? '#' : newsPageUrl}>
             <a>{newsPageLinkText}</a>
           </Link>
         </LinkBlock>
@@ -81,13 +89,13 @@ export default function GridSection({
       <GridColumn>
         <AboutContainer>
           <AboutImageWrapper>
-            <img className="imageOne" src={aboutImageOne} />
-            <div className="imageTwoWrapper">
-              <img className="imageTwo" src={aboutImageTwo} />
+            <img className='imageOne' src={aboutImageOne} />
+            <div className='imageTwoWrapper'>
+              <img className='imageTwo' src={aboutImageTwo} />
             </div>
           </AboutImageWrapper>
           <AboutLinkBlock>
-            <Link href={aboutPageUrl == undefined ? "#" : aboutPageUrl}>
+            <Link href={aboutPageUrl == undefined ? '#' : aboutPageUrl}>
               <a>{aboutPageLinkText}</a>
             </Link>
           </AboutLinkBlock>
