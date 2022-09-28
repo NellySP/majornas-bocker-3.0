@@ -92,7 +92,6 @@ export const PostLink = styled.p`
 
     &:hover {
       font-style: italic;
-      font-weight: 400;
     }
   }
 `;
