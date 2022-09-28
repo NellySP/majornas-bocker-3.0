@@ -38,7 +38,7 @@ export default {
                             Rule.required().uri({
                             allowRelative: true, // Allow relative links
                             relativeOnly: false, // Force only relative links
-                            scheme: ["https", "http", "mailto"],})
+                            scheme: ["https", "http", "mailto", "tel"],})
                       },
                     ]
                   },
