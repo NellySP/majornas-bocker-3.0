@@ -105,7 +105,6 @@ export const PostLink = styled.p`
 export const ImgWrapper = styled.div`
   position: relative;
   z-index: -1;
-  min-width: 343px;
   min-height: 329px;
   width: 100%;
   height: 329px;

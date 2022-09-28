@@ -59,7 +59,6 @@ export const PostHeading = styled.h3`
 
 export const ImgWrapper = styled.div`
   overflow: hidden;
-  min-width: 343px;
   min-height: 329px;
   width: 100%;
   height: 329px;
