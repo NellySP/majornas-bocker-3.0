@@ -45,6 +45,7 @@ export const CalendarBox = styled.div`
     font-size: var(--p-desktop);
     color: var(--black);
     text-decoration: underline;
+    text-underline-offset: 0.13rem;
     text-align: right;
 
     &:hover {
@@ -121,6 +122,7 @@ export const LinkBlock = styled.div`
     font-size: var(--big-link-mobile);
     color: var(--black);
     text-decoration: underline;
+    text-underline-offset: 0.13rem;
     text-align: center;
 
     &:hover {
