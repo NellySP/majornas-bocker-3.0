@@ -21,7 +21,6 @@ export default function NewsHero({
               <h2>{noticeHeading}</h2>
               {noticeText.map((paragraph) => {
                 const link = paragraph.markDefs[0];
-                console.log(paragraph);
 
                 if (link) {
                   return (

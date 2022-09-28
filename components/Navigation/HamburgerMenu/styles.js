@@ -90,7 +90,7 @@ export const MenuLinks = styled.nav`
   gap: 2rem;
   text-align: center;
   height: 100vh;
-  width: 401px;
+  width: 100%;
   background-color: var(--light-gray);
   position: fixed;
   top: 0;
@@ -100,6 +100,9 @@ export const MenuLinks = styled.nav`
   transition: transform 0.3s ease-in-out;
   transform: ${({ nav }) => (nav ? "translateX(0)" : "translateX(100%)")};
 
+  @media ${device.tablet} {
+    width: 401px;
+  }
   @media ${device.laptopL} {
     display: none;
   }
