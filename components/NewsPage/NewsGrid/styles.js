@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { device } from '../../../styles/mediaQueries';
+import styled from "styled-components";
+import { device } from "../../../styles/mediaQueries";
 
 export const NewsWrapper = styled.div`
   display: flex;
@@ -87,6 +87,7 @@ export const PostLink = styled.p`
     color: black;
     font-size: var(--small-link-desktop);
     text-decoration: underline;
+    text-underline-offset: 0.13rem;
     font-weight: 200;
 
     &:hover {
@@ -117,6 +118,7 @@ export const LoaderButton = styled.a`
   font-size: var(--big-link-mobile);
   color: var(--black);
   text-decoration: underline;
+  text-underline-offset: 0.13rem;
   font-weight: 500;
   background-color: transparent;
 

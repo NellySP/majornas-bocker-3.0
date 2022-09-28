@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { device } from '../../../styles/mediaQueries';
+import styled from "styled-components";
+import { device } from "../../../styles/mediaQueries";
 
 export const HeroContainer = styled.div`
   border-bottom: 1px solid var(--black);
@@ -39,6 +39,7 @@ export const HeroContent = styled.div`
     font-size: var(--small-link-mobile);
     color: var(--black);
     text-decoration: underline;
+    text-underline-offset: 0.13rem;
   }
 
   @media ${device.tablet} {

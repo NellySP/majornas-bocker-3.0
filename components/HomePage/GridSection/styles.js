@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { device } from '../../../styles/mediaQueries';
+import styled from "styled-components";
+import { device } from "../../../styles/mediaQueries";
 export const GridContainer = styled.div`
   width: 100%;
   height: max-content;
@@ -198,6 +198,7 @@ export const AboutLinkBlock = styled.div`
     font-size: var(--big-link-mobile);
     color: var(--black);
     text-decoration: underline;
+    text-underline-offset: 0.13rem;
     text-align: right;
 
     &:hover {
