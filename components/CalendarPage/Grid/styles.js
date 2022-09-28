@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { device } from '../../../styles/mediaQueries';
+import styled from "styled-components";
+import { device } from "../../../styles/mediaQueries";
 
 export const CalendarWrapper = styled.div`
   /* mobile first */
@@ -92,6 +92,7 @@ export const PostLink = styled.p`
     color: black;
     font-size: var(--small-link-desktop);
     text-decoration: underline;
+    text-underline-offset: 0.13rem;
     font-weight: 200;
 
     &:hover {

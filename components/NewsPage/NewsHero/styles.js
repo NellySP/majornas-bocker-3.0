@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { device } from '../../../styles/mediaQueries';
+import styled from "styled-components";
+import { device } from "../../../styles/mediaQueries";
 
 export const HeroContainer = styled.div`
   margin: 7.875rem 0 4rem 0;
@@ -138,6 +138,7 @@ export const HeroContent = styled.div`
     font-size: var(--p-desktop);
     color: var(--black);
     text-decoration: underline;
+    text-underline-offset: 0.13rem;
 
     &:hover {
       font-style: italic;

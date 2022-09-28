@@ -68,6 +68,7 @@ export const FooterListItem = styled.li`
 
   a {
     text-decoration: underline;
+    text-underline-offset: 0.13rem;
   }
   a:hover {
     font-style: italic;
