@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { urlFor } from '../../../lib/sanity';
-import { sanityClient } from '../../../lib/sanity';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { urlFor } from "../../../lib/sanity";
+import { sanityClient } from "../../../lib/sanity";
 
 import {
   CalendarWrapper,
@@ -16,7 +16,7 @@ import {
   LoaderContainer,
   LoaderButton,
   LoaderText,
-} from './styles';
+} from "./styles";
 
 export default function CalendarPosts() {
   const [grid, setGrid] = useState([]);
@@ -56,7 +56,7 @@ export default function CalendarPosts() {
     <>
       <CalendarWrapper>
         {calendarPosts == undefined
-          ? ''
+          ? ""
           : calendarPosts &&
             calendarPosts.slice(0, numberOfPosts).map((calendarPost) => (
               <SinglePost key={calendarPost._id}>
@@ -72,12 +72,12 @@ export default function CalendarPosts() {
                     ))}
 
                   <PostDate>
-                    <p className='month'>{calendarPost.month}</p>
-                    <p className='day'>{calendarPost.day}</p>
+                    <p className="month">{calendarPost.month}</p>
+                    <p className="day">{calendarPost.day}</p>
                   </PostDate>
                 </ImgWrapper>
                 <PostHeading>
-                  {calendarPost.eventType == '' ? (
+                  {calendarPost.eventType == "" ? (
                     <h3>{calendarPost.heading}</h3>
                   ) : (
                     <h3>
@@ -99,13 +99,13 @@ export default function CalendarPosts() {
       </CalendarWrapper>
       <LoaderContainer>
         {calendarPosts == undefined ? (
-          ''
+          ""
         ) : calendarPosts && numberOfPosts < calendarPosts.length ? (
           <LoaderButton onClick={handleLoader}>
             Ladda fler evenemang
           </LoaderButton>
         ) : (
-          <LoaderText>Allt är laddat! 👍</LoaderText>
+          <LoaderText></LoaderText>
         )}
       </LoaderContainer>
     </>
