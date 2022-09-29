@@ -15,11 +15,6 @@ export const GridContainer = styled.div`
     .firstImage {
       width: 100%;
       height: 21rem;
-      background-color: red;
-
-      img {
-        /* height: 100%; */
-      }
     }
 
     .thirdImage {
@@ -75,11 +70,6 @@ export const GridContainer = styled.div`
         height: 100%;
       }
     }
-
-    /* .gallery img {
-      width: 100%;
-      height: 100%;
-    } */
   }
 
   @media ${device.laptop} {
