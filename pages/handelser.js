@@ -1,8 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import Head from 'next/head';
 
-import { sanityClient } from "../lib/sanity";
-import NewsHero from "../components/NewsPage/NewsHero";
-import NewsGrid from "../components/NewsPage/NewsGrid";
+import { sanityClient } from '../lib/sanity';
+import NewsHero from '../components/NewsPage/NewsHero';
+import NewsGrid from '../components/NewsPage/NewsGrid';
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 
@@ -14,29 +15,44 @@ const newsPageQuery = `*[_type == 'newsPage']{
   pageBuilder
 }`;
 
-export default function Home({ newsPage }) {
+const headQuery = `*[_type == "siteConfig"][0]{
+  seo,
+  logotype,
+  nav[]->{
+    title,
+  }
+}`;
+
+export default function Home({ meta, newsPage }) {
   const newsHeading = newsPage[0].pageBuilder[0].heading;
   const newsText = newsPage[0].pageBuilder[0].heroDescription;
   const noticeHeading = newsPage[0].pageBuilder[0].noticeOfInterest;
   const noticeText = newsPage[0].pageBuilder[0].noticeText;
 
   return (
-    <NewsPageWrapper>
-      <NewsHero
-      newsHeading={newsHeading} 
-      newsText={newsText}
-      noticeHeading={noticeHeading}
-      noticeText={noticeText} 
-      />
+    <>
+      <Head>
+        <title>
+          {meta.nav[2].title} – {meta.logotype}
+        </title>
+      </Head>
+      <NewsPageWrapper>
+        <NewsHero
+          newsHeading={newsHeading}
+          newsText={newsText}
+          noticeHeading={noticeHeading}
+          noticeText={noticeText}
+        />
 
-      <NewsGrid></NewsGrid>
-    </NewsPageWrapper>
+        <NewsGrid></NewsGrid>
+      </NewsPageWrapper>
+    </>
   );
-} 
+}
 
 export async function getStaticProps() {
   const newsPage = await sanityClient.fetch(newsPageQuery);
-
+  const meta = await sanityClient.fetch(headQuery);
   // Assign aboutPage to props
-  return { props: { newsPage } };
+  return { props: { meta, newsPage } };
 }
