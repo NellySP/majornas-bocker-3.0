@@ -26,20 +26,21 @@ export default function Navigation() {
   }, []);
 
   const links = navItems.nav;
-  console.log(navItems.seo);
+  console.log(navItems?.seo?.socialImage);
+  const socialImage = navItems?.seo?.socialImage;
 
   return (
     <>
       <Head>
-        <title>{navItems.seo?.title}</title>
+        <title>{navItems?.seo?.title}</title>
         <meta name='description' content={navItems.seo?.description} />
         <link rel='icon' href='/favicon.ico' />
-        <meta property='og:title' content={navItems.seo?.title} />
-        <meta property='og:url' content={navItems.seo?.url} />
-        <meta
-          property='og:image'
-          content={urlFor(navItems.seo?.socialImage).url()}
-        />
+        <meta property='og:title' content={navItems?.seo?.title} />
+        <meta property='og:url' content={navItems?.seo?.url} />
+        {/* <meta property='og:image' content={navItems?.seo.socialImage} /> */}
+        {socialImage && (
+          <meta property='og:image' content={urlFor(socialImage).url()} />
+        )}
       </Head>
       <HamburgerMenu />
       <NavContainer>
