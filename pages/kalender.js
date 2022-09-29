@@ -41,7 +41,17 @@ export default function Home({ meta, calendarPage }) {
           property='og:image'
           content={urlFor(meta.seo.socialImage).url()}
         />
+        <meta property='twitter:card' content='summary_large_image' />
+        <meta property='twitter:url' content={meta.seo.url} />
+        <meta property='twitter:title' content={calendarHeading} />
+        <meta property='twitter:description' content={meta.seo.description} />
+
+        <meta
+          property='twitter:image'
+          content={urlFor(meta.seo.socialImage).url()}
+        />
       </Head>
+
       <CalendarHero
         calendarHeading={calendarHeading}
         calendarText={calendarText}

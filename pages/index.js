@@ -100,7 +100,16 @@ export default function Home({ meta, hero, calendar, aboutImages, newsLink }) {
           property='og:image'
           content={urlFor(meta.seo.socialImage).url()}
         />
+        <meta property='twitter:card' content='summary_large_image' />
+        <meta property='twitter:url' content={meta.seo.url} />
+        <meta property='twitter:title' content={h1} />
+        <meta property='twitter:description' content={meta.seo.description} />
+        <meta
+          property='twitter:image'
+          content={urlFor(meta.seo.socialImage).url()}
+        />
       </Head>
+
       <Hero
         heading={h1}
         description={heroDescription}
