@@ -1,7 +1,7 @@
 import AboutHero from '../components/AboutPage/AboutHero';
 import AboutGrid from '../components/AboutPage/AboutGrid';
 
-import { sanityClient } from '../lib/sanity';
+import { sanityClient, urlFor } from '../lib/sanity';
 import Head from 'next/head';
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
@@ -37,6 +37,15 @@ export default function Home({ meta, aboutPage }) {
         <title>
           {meta.nav[3].title} – {meta.logotype}
         </title>
+        <meta name='title' content={aboutHeading} />
+        <meta name='description' content={meta.seo.description} />
+        <meta property='og:url' content={meta.seo.url} />
+        <meta property='og:title' content={aboutHeading} />
+        <meta property='og:description' content={meta.seo.description} />
+        <meta
+          property='og:image'
+          content={urlFor(meta.seo.socialImage).url()}
+        />
       </Head>
       <AboutHero
         aboutHeading={aboutHeading}

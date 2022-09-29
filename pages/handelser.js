@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Head from 'next/head';
 
-import { sanityClient } from '../lib/sanity';
+import { sanityClient, urlFor } from '../lib/sanity';
 import NewsHero from '../components/NewsPage/NewsHero';
 import NewsGrid from '../components/NewsPage/NewsGrid';
 
@@ -35,6 +35,15 @@ export default function Home({ meta, newsPage }) {
         <title>
           {meta.nav[2].title} – {meta.logotype}
         </title>
+        <meta name='title' content={newsHeading} />
+        <meta name='description' content={meta.seo.description} />
+        <meta property='og:url' content={meta.seo.url} />
+        <meta property='og:title' content={newsHeading} />
+        <meta property='og:description' content={meta.seo.description} />
+        <meta
+          property='og:image'
+          content={urlFor(meta.seo.socialImage).url()}
+        />
       </Head>
       <NewsPageWrapper>
         <NewsHero
