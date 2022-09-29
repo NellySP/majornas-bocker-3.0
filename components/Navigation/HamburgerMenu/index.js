@@ -24,7 +24,7 @@ export default function HamburgerMenu() {
     sanityClient
       .fetch(
         `*[_type == "siteConfig"][0]{
-            title,
+            logotype,
           nav[]->{ 
             _id,
             slug,
@@ -41,7 +41,7 @@ export default function HamburgerMenu() {
   return (
     <>
       <NavContainer>
-        <NavLogo href='/'>{navItems.title}</NavLogo>
+        <NavLogo href='/'>{navItems?.logotype}</NavLogo>
         <MenuTrigger onClick={() => toggleMenu()}>{menuText}</MenuTrigger>
       </NavContainer>
       <MenuLinks nav={nav}>

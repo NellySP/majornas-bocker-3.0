@@ -6,14 +6,16 @@ export const HeroContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  margin-top: 1.5rem;
 
   @media ${device.tablet} {
     flex-direction: row;
+    margin-top: 5rem;
   }
 
   @media ${device.laptop} {
-    padding-top: 1.5rem;
     flex: 1;
+    margin-top: 1.5rem;
   }
 `;
 
@@ -24,14 +26,15 @@ export const HeroContent = styled.div`
   padding: 3rem 0;
 
   h1 {
-    font-size: var(--h1-mobile);
+    font-size: 12vw;
+    line-height: 1;
     margin-bottom: 1.5rem;
   }
 
   @media ${device.tablet} {
     h1 {
-      font-size: var(--h1-tablet);
-      line-height: 72px;
+      font-size: 5vw;
+      line-height: 1;
       margin-bottom: 2rem;
       width: 100%;
     }
@@ -45,8 +48,9 @@ export const HeroContent = styled.div`
     justify-content: center;
 
     h1 {
-      font-size: var(--h1-desktop);
-      line-height: 90px;
+      /* font-size: var(--h1-desktop); */
+      font-size: 6vw;
+      line-height: 1;
     }
 
     p {
@@ -84,7 +88,7 @@ export const HeroImage = styled.img`
   }
 
   @media ${device.laptop} {
-    width: 35vw;
+    width: 30vw;
     /* height: auto; */
   }
 `;
