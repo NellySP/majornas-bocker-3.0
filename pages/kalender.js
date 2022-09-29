@@ -2,7 +2,7 @@ import CalendarHero from '../components/CalendarPage/CalendarHero';
 import Grid from '../components/CalendarPage/Grid';
 import Head from 'next/head';
 
-import { sanityClient } from '../lib/sanity';
+import { sanityClient, urlFor } from '../lib/sanity';
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 
@@ -32,6 +32,15 @@ export default function Home({ meta, calendarPage }) {
         <title>
           {meta.nav[1].title} – {meta.logotype}
         </title>
+        <meta name='title' content={calendarHeading} />
+        <meta name='description' content={meta.seo.description} />
+        <meta property='og:url' content={meta.seo.url} />
+        <meta property='og:title' content={calendarHeading} />
+        <meta property='og:description' content={meta.seo.description} />
+        <meta
+          property='og:image'
+          content={urlFor(meta.seo.socialImage).url()}
+        />
       </Head>
       <CalendarHero
         calendarHeading={calendarHeading}
