@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../../../styles/mediaQueries";
+import styled from 'styled-components';
+import { device } from '../../../styles/mediaQueries';
 
 export const HeroContainer = styled.div`
   border-bottom: 1px solid var(--black);
@@ -9,13 +9,11 @@ export const HeroContainer = styled.div`
 
   @media ${device.tablet} {
     flex-direction: row;
-    gap: 1rem;
   }
 
   @media ${device.laptop} {
     padding-top: 1.5rem;
     flex: 1;
-    gap: 1.5rem;
   }
 `;
 
@@ -23,64 +21,50 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 3rem 0 0 0;
+  padding: 3rem 0;
 
   h1 {
     font-size: var(--h1-mobile);
     margin-bottom: 1.5rem;
-    line-height: 67px;
-  }
-
-  p {
-    line-height: 26px;
-  }
-
-  a {
-    font-size: var(--small-link-mobile);
-    color: var(--black);
-    text-decoration: underline;
-    text-underline-offset: 0.13rem;
   }
 
   @media ${device.tablet} {
-    margin-bottom: 3rem;
     h1 {
-      /* font-size: var(--h1-tablet); */
-      font-size: 6vw;
-      line-height: 1;
+      font-size: var(--h1-tablet);
+      line-height: 72px;
       margin-bottom: 2rem;
       width: 100%;
     }
 
     p {
       margin-bottom: 2.5rem;
-      line-height: 28px;
-    }
-
-    a {
-      font-size: var(--p-desktop);
-
-      &:hover {
-        font-style: italic;
-        font-weight: 300;
-      }
     }
   }
 
   @media ${device.laptop} {
-    position: relative;
     justify-content: center;
 
     h1 {
-      line-height: 1;
-      margin-bottom: 0;
+      font-size: var(--h1-desktop);
+      line-height: 90px;
     }
 
     p {
       font-size: var(--h2-desktop);
-      line-height: 33px;
+      line-height: 113%;
       width: 75%;
       margin-bottom: 4rem;
+    }
+  }
+
+  a {
+    font-size: var(--p-desktop);
+    color: var(--black);
+    text-decoration: underline;
+
+    &:hover {
+      font-style: italic;
+      font-weight: 400;
     }
   }
 `;
@@ -100,7 +84,7 @@ export const HeroImage = styled.img`
   }
 
   @media ${device.laptop} {
-    width: auto;
-    height: 40vw;
+    width: 35vw;
+    /* height: auto; */
   }
 `;
