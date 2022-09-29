@@ -32,14 +32,31 @@ export default function Navigation() {
   return (
     <>
       <Head>
+        {/* <!-- Primary Meta Tags --> */}
         <title>{navItems?.seo?.title}</title>
-        <meta name='description' content={navItems.seo?.description} />
         <link rel='icon' href='/favicon.ico' />
-        <meta property='og:title' content={navItems?.seo?.title} />
+        <meta name='title' content={navItems?.seo?.title} />
+        <meta name='description' content={navItems.seo?.description} />
+
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property='og:type' content='website' />
         <meta property='og:url' content={navItems?.seo?.url} />
-        {/* <meta property='og:image' content={navItems?.seo.socialImage} /> */}
+        <meta property='og:title' content={navItems?.seo?.title} />
+        <meta property='og:description' content={navItems.seo?.description} />
         {socialImage && (
           <meta property='og:image' content={urlFor(socialImage).url()} />
+        )}
+
+        {/* <!-- Twitter --> */}
+        <meta property='twitter:card' content='summary_large_image' />
+        <meta property='twitter:url' content={navItems?.seo?.url} />
+        <meta property='twitter:title' content={navItems?.seo?.title} />
+        <meta
+          property='twitter:description'
+          content={navItems.seo?.description}
+        />
+        {socialImage && (
+          <meta property='twitter:image' content={urlFor(socialImage).url()} />
         )}
       </Head>
       <HamburgerMenu />
