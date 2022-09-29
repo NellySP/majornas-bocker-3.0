@@ -2,6 +2,7 @@ import AboutHero from '../components/AboutPage/AboutHero';
 import AboutGrid from '../components/AboutPage/AboutGrid';
 
 import { sanityClient } from '../lib/sanity';
+import Head from 'next/head';
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 
@@ -9,7 +10,15 @@ const aboutPageQuery = `*[_type == 'aboutPage']{
   pageBuilder
 }`;
 
-export default function Home({ aboutPage }) {
+const headQuery = `*[_type == "siteConfig"][0]{
+  seo,
+  logotype,
+  nav[]->{
+    title,
+  }
+}`;
+
+export default function Home({ meta, aboutPage }) {
   // Variables for about page
   const aboutHeading = aboutPage[0].pageBuilder[0].heading;
   const aboutText = aboutPage[0].pageBuilder[0].heroDescription;
@@ -23,7 +32,12 @@ export default function Home({ aboutPage }) {
   console.log(openingHoursTitle);
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>
+          {meta.nav[3].title} – {meta.logotype}
+        </title>
+      </Head>
       <AboutHero
         aboutHeading={aboutHeading}
         aboutText={aboutText}
@@ -38,12 +52,14 @@ export default function Home({ aboutPage }) {
         galleryImage3={galleryImage3}
         galleryImage4={galleryImage4}
       />
-    </div>
+    </>
   );
 }
 
 export async function getStaticProps() {
   const aboutPage = await sanityClient.fetch(aboutPageQuery);
+  const meta = await sanityClient.fetch(headQuery);
+
   // Assign aboutPage to props
-  return { props: { aboutPage } };
+  return { props: { meta, aboutPage } };
 }

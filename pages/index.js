@@ -2,6 +2,7 @@ import Hero from '../components/HomePage/Hero';
 import GridSection from '../components/HomePage/GridSection';
 
 import { sanityClient, urlFor } from '../lib/sanity';
+import Head from 'next/head';
 
 // GROQ query cheat sheet https://www.sanity.io/docs/query-cheat-sheet
 
@@ -51,8 +52,16 @@ const newsQuery = `*[_type == 'homePage'][0]{
   }
  }`;
 
-export default function Home({ hero, calendar, aboutImages, newsLink }) {
-  // console.log(nav);
+const headQuery = `*[_type == "siteConfig"][0]{
+  seo,
+  logotype,
+  nav[]->{
+    title,
+  }
+}`;
+
+export default function Home({ meta, hero, calendar, aboutImages, newsLink }) {
+  console.log(meta);
   // Hero
   const h1 = hero.pageBuilder.heading;
   const heroDescription = hero.pageBuilder.heroDescription;
@@ -78,6 +87,20 @@ export default function Home({ hero, calendar, aboutImages, newsLink }) {
 
   return (
     <div>
+      <Head>
+        <title>
+          {meta.nav[0].title} – {meta.logotype}
+        </title>
+        <meta name='title' content={h1} />
+        <meta name='description' content={heroDescription} />
+        <meta property='og:url' content={meta.seo.url} />
+        <meta property='og:title' content={h1} />
+        <meta property='og:description' content={heroDescription} />
+        <meta
+          property='og:image'
+          content={urlFor(meta.seo.socialImage).url()}
+        />
+      </Head>
       <Hero
         heading={h1}
         description={heroDescription}
@@ -106,6 +129,7 @@ export async function getStaticProps() {
   const calendar = await sanityClient.fetch(calendarQuery);
   const aboutImages = await sanityClient.fetch(aboutQuery);
   const newsLink = await sanityClient.fetch(newsQuery);
+  const meta = await sanityClient.fetch(headQuery);
 
-  return { props: { hero, calendar, aboutImages, newsLink } };
+  return { props: { meta, hero, calendar, aboutImages, newsLink } };
 }
