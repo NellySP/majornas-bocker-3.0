@@ -35,8 +35,6 @@ export default function Navigation() {
   }, []);
 
   const links = navItems.nav;
-  // console.log(navItems?.seo?.socialImage);
-  const socialImage = navItems?.seo?.socialImage;
 
   return (
     <>
