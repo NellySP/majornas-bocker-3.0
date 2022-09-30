@@ -92,6 +92,10 @@ export default function Home({ meta, hero, calendar, aboutImages, newsLink }) {
           {meta.nav[0].title} – {meta.logotype}
         </title>
         <meta name='title' content={h1} />
+        <meta
+          name='google-site-verification'
+          content='n-duE2sMxCnkIJrUYeGcjlWEOjOA5EAbJ0JAcw1EJRE'
+        />
         <meta name='description' content={heroDescription} />
         <meta property='og:url' content={meta.seo.url} />
         <meta property='og:title' content={h1} />
