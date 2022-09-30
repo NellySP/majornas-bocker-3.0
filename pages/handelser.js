@@ -11,8 +11,9 @@ const NewsPageWrapper = styled.div`
   width: 100%;
 `;
 
-const newsPageQuery = `*[_type == 'newsPage']{
-  pageBuilder
+const newsPageQuery = `*[_type == 'newsPage'][0]{
+  title,
+  newsHero
 }`;
 
 const headQuery = `*[_type == "siteConfig"][0]{
@@ -24,10 +25,10 @@ const headQuery = `*[_type == "siteConfig"][0]{
 }`;
 
 export default function Home({ meta, newsPage }) {
-  const newsHeading = newsPage[0].pageBuilder[0].heading;
-  const newsText = newsPage[0].pageBuilder[0].heroDescription;
-  const noticeHeading = newsPage[0].pageBuilder[0].noticeOfInterest;
-  const noticeText = newsPage[0].pageBuilder[0].noticeText;
+  const newsHeading = newsPage.newsHero.heading;
+  const newsText = newsPage.newsHero.heroDescription;
+  const noticeHeading = newsPage.newsHero.noticeOfInterest;
+  const noticeText = newsPage.newsHero.noticeText;
 
   return (
     <>
