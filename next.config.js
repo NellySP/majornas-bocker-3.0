@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   // swcMinify: true,
-  compilter: {
+  compiler: {
     styledComponents: true,
   },
   images: {
