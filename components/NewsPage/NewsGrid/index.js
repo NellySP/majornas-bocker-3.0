@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { urlFor } from "../../../lib/sanity";
-import { sanityClient } from "../../../lib/sanity";
+import React, { useState, useEffect } from 'react';
+import { urlFor } from '../../../lib/sanity';
+import { sanityClient } from '../../../lib/sanity';
 
 import {
   NewsWrapper,
@@ -13,7 +13,7 @@ import {
   LoaderContainer,
   LoaderButton,
   LoaderText,
-} from "./styles";
+} from './styles';
 
 export default function NewsPosts() {
   const [grid, setGrid] = useState([]);
@@ -45,7 +45,7 @@ export default function NewsPosts() {
     <>
       <NewsWrapper>
         {newsPosts &&
-          newsPosts.slice(1, numberOfPosts).map((newsPost) => (
+          newsPosts.slice(0, numberOfPosts).map((newsPost) => (
             <SinglePost key={newsPost._id}>
               <ImgWrapper>
                 <PostImg src={urlFor(newsPost.image.asset._ref).url()} />
@@ -60,7 +60,7 @@ export default function NewsPosts() {
       </NewsWrapper>
       <LoaderContainer>
         {newsPosts == undefined ? (
-          ""
+          ''
         ) : newsPosts && numberOfPosts < newsPosts.length ? (
           <LoaderButton onClick={handleLoader}>
             Ladda fler evenemang
