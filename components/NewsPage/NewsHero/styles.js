@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../../../styles/mediaQueries";
+import styled from 'styled-components';
+import { device } from '../../../styles/mediaQueries';
 
 export const HeroContainer = styled.div`
   margin: 7.875rem 0 4rem 0;
@@ -58,8 +58,7 @@ export const HeroContent = styled.div`
       flex-direction: column;
     }
 
-    h2,
-    p {
+    h2 {
       font-size: var(--h2-mobile);
       letter-spacing: normal;
       margin: 0;
@@ -71,7 +70,7 @@ export const HeroContent = styled.div`
   }
   .noticeTextLink a {
     font-family: var(--cormorant-garamond);
-    font-size: var(--h2-mobile);
+    font-size: var(--h3-mobile);
   }
 
   @media ${device.tablet} {

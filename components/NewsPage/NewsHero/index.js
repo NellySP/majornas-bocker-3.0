@@ -24,19 +24,18 @@ export default function NewsHero({
 
                 if (link) {
                   return (
-                    <p className="noticeTextLink" key={paragraph._id}>
-                      <a href={link.href} target="_blank" rel="noreferrer">
-                      {paragraph.children[0].text}
+                    <p className='noticeTextLink' key={paragraph._id}>
+                      <a href={link.href} target='_blank' rel='noreferrer'>
+                        {paragraph.children[0].text}
                       </a>
                     </p>
-                  )
-                }
-                else {
+                  );
+                } else {
                   return (
-                    <p className="noticeText" key={paragraph._id}>
+                    <p className='noticeText' key={paragraph._id}>
                       {paragraph.children[0].text}
                     </p>
-                  )
+                  );
                 }
               })}
             </div>

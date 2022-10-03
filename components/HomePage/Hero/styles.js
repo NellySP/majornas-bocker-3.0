@@ -23,7 +23,7 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 3rem 0;
+  padding: 3rem 0 0 0;
 
   h1 {
     font-size: 12vw;
@@ -46,6 +46,7 @@ export const HeroContent = styled.div`
 
   @media ${device.laptop} {
     justify-content: center;
+    padding: 3rem 0 3rem 0;
 
     h1 {
       /* font-size: var(--h1-desktop); */
@@ -62,13 +63,16 @@ export const HeroContent = styled.div`
   }
 
   a {
-    font-size: var(--p-desktop);
+    font-size: 0.875rem;
     color: var(--black);
     text-decoration: underline;
 
     &:hover {
       font-style: italic;
-      font-weight: 400;
+    }
+
+    @media ${device.tablet} {
+      font-size: var(--p-desktop);
     }
   }
 `;
